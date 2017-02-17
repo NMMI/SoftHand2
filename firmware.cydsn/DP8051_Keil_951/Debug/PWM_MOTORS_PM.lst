@@ -1,0 +1,330 @@
+C51 COMPILER V9.51   PWM_MOTORS_PM                                                         05/11/2016 14:38:04 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE PWM_MOTORS_PM
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\PWM_MOTORS_PM.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\Generated_Source\PSoC3\PWM_MOTORS_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB WL(
+                    -2) PR(.\DP8051_Keil_951\Debug/PWM_MOTORS_PM.lst) CD OT(2,SIZE) OJ(.\DP8051_Keil_951\Debug\PWM_MOTORS_PM.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: PWM_MOTORS_PM.c
+   3          * Version 3.30
+   4          *
+   5          * Description:
+   6          *  This file provides the power management source code to API for the
+   7          *  PWM.
+   8          *
+   9          * Note:
+  10          *
+  11          ********************************************************************************
+  12          * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  13          * You may use this file only in accordance with the license, terms, conditions,
+  14          * disclaimers, and limitations in the end user license agreement accompanying
+  15          * the software package with which this file was provided.
+  16          *******************************************************************************/
+  17          
+  18          #include "PWM_MOTORS.h"
+  19          
+  20          static PWM_MOTORS_backupStruct PWM_MOTORS_backup;
+  21          
+  22          
+  23          /*******************************************************************************
+  24          * Function Name: PWM_MOTORS_SaveConfig
+  25          ********************************************************************************
+  26          *
+  27          * Summary:
+  28          *  Saves the current user configuration of the component.
+  29          *
+  30          * Parameters:
+  31          *  None
+  32          *
+  33          * Return:
+  34          *  None
+  35          *
+  36          * Global variables:
+  37          *  PWM_MOTORS_backup:  Variables of this global structure are modified to
+  38          *  store the values of non retention configuration registers when Sleep() API is
+  39          *  called.
+  40          *
+  41          *******************************************************************************/
+  42          void PWM_MOTORS_SaveConfig(void) 
+  43          {
+  44   1      
+  45   1          #if(!PWM_MOTORS_UsingFixedFunction)
+  46   1              #if(!PWM_MOTORS_PWMModeIsCenterAligned)
+  47   1                  PWM_MOTORS_backup.PWMPeriod = PWM_MOTORS_ReadPeriod();
+  48   1              #endif /* (!PWM_MOTORS_PWMModeIsCenterAligned) */
+  49   1              PWM_MOTORS_backup.PWMUdb = PWM_MOTORS_ReadCounter();
+  50   1              #if (PWM_MOTORS_UseStatus)
+                          PWM_MOTORS_backup.InterruptMaskValue = PWM_MOTORS_STATUS_MASK;
+                      #endif /* (PWM_MOTORS_UseStatus) */
+  53   1      
+C51 COMPILER V9.51   PWM_MOTORS_PM                                                         05/11/2016 14:38:04 PAGE 2   
+
+  54   1              #if(PWM_MOTORS_DeadBandMode == PWM_MOTORS__B_PWM__DBM_256_CLOCKS || \
+  55   1                  PWM_MOTORS_DeadBandMode == PWM_MOTORS__B_PWM__DBM_2_4_CLOCKS)
+                          PWM_MOTORS_backup.PWMdeadBandValue = PWM_MOTORS_ReadDeadTime();
+                      #endif /*  deadband count is either 2-4 clocks or 256 clocks */
+  58   1      
+  59   1              #if(PWM_MOTORS_KillModeMinTime)
+                           PWM_MOTORS_backup.PWMKillCounterPeriod = PWM_MOTORS_ReadKillTime();
+                      #endif /* (PWM_MOTORS_KillModeMinTime) */
+  62   1      
+  63   1              #if(PWM_MOTORS_UseControl)
+  64   1                  PWM_MOTORS_backup.PWMControlRegister = PWM_MOTORS_ReadControlRegister();
+  65   1              #endif /* (PWM_MOTORS_UseControl) */
+  66   1          #endif  /* (!PWM_MOTORS_UsingFixedFunction) */
+  67   1      }
+  68          
+  69          
+  70          /*******************************************************************************
+  71          * Function Name: PWM_MOTORS_RestoreConfig
+  72          ********************************************************************************
+  73          *
+  74          * Summary:
+  75          *  Restores the current user configuration of the component.
+  76          *
+  77          * Parameters:
+  78          *  None
+  79          *
+  80          * Return:
+  81          *  None
+  82          *
+  83          * Global variables:
+  84          *  PWM_MOTORS_backup:  Variables of this global structure are used to
+  85          *  restore the values of non retention registers on wakeup from sleep mode.
+  86          *
+  87          *******************************************************************************/
+  88          void PWM_MOTORS_RestoreConfig(void) 
+  89          {
+  90   1              #if(!PWM_MOTORS_UsingFixedFunction)
+  91   1                  #if(!PWM_MOTORS_PWMModeIsCenterAligned)
+  92   1                      PWM_MOTORS_WritePeriod(PWM_MOTORS_backup.PWMPeriod);
+  93   1                  #endif /* (!PWM_MOTORS_PWMModeIsCenterAligned) */
+  94   1      
+  95   1                  PWM_MOTORS_WriteCounter(PWM_MOTORS_backup.PWMUdb);
+  96   1      
+  97   1                  #if (PWM_MOTORS_UseStatus)
+                              PWM_MOTORS_STATUS_MASK = PWM_MOTORS_backup.InterruptMaskValue;
+                          #endif /* (PWM_MOTORS_UseStatus) */
+ 100   1      
+ 101   1                  #if(PWM_MOTORS_DeadBandMode == PWM_MOTORS__B_PWM__DBM_256_CLOCKS || \
+ 102   1                      PWM_MOTORS_DeadBandMode == PWM_MOTORS__B_PWM__DBM_2_4_CLOCKS)
+                              PWM_MOTORS_WriteDeadTime(PWM_MOTORS_backup.PWMdeadBandValue);
+                          #endif /* deadband count is either 2-4 clocks or 256 clocks */
+ 105   1      
+ 106   1                  #if(PWM_MOTORS_KillModeMinTime)
+                              PWM_MOTORS_WriteKillTime(PWM_MOTORS_backup.PWMKillCounterPeriod);
+                          #endif /* (PWM_MOTORS_KillModeMinTime) */
+ 109   1      
+ 110   1                  #if(PWM_MOTORS_UseControl)
+ 111   1                      PWM_MOTORS_WriteControlRegister(PWM_MOTORS_backup.PWMControlRegister);
+ 112   1                  #endif /* (PWM_MOTORS_UseControl) */
+ 113   1              #endif  /* (!PWM_MOTORS_UsingFixedFunction) */
+ 114   1          }
+ 115          
+C51 COMPILER V9.51   PWM_MOTORS_PM                                                         05/11/2016 14:38:04 PAGE 3   
+
+ 116          
+ 117          /*******************************************************************************
+ 118          * Function Name: PWM_MOTORS_Sleep
+ 119          ********************************************************************************
+ 120          *
+ 121          * Summary:
+ 122          *  Disables block's operation and saves the user configuration. Should be called
+ 123          *  just prior to entering sleep.
+ 124          *
+ 125          * Parameters:
+ 126          *  None
+ 127          *
+ 128          * Return:
+ 129          *  None
+ 130          *
+ 131          * Global variables:
+ 132          *  PWM_MOTORS_backup.PWMEnableState:  Is modified depending on the enable
+ 133          *  state of the block before entering sleep mode.
+ 134          *
+ 135          *******************************************************************************/
+ 136          void PWM_MOTORS_Sleep(void) 
+ 137          {
+ 138   1          #if(PWM_MOTORS_UseControl)
+ 139   1              if(PWM_MOTORS_CTRL_ENABLE == (PWM_MOTORS_CONTROL & PWM_MOTORS_CTRL_ENABLE))
+ 140   1              {
+ 141   2                  /*Component is enabled */
+ 142   2                  PWM_MOTORS_backup.PWMEnableState = 1u;
+ 143   2              }
+ 144   1              else
+ 145   1              {
+ 146   2                  /* Component is disabled */
+ 147   2                  PWM_MOTORS_backup.PWMEnableState = 0u;
+ 148   2              }
+ 149   1          #endif /* (PWM_MOTORS_UseControl) */
+ 150   1      
+ 151   1          /* Stop component */
+ 152   1          PWM_MOTORS_Stop();
+ 153   1      
+ 154   1          /* Save registers configuration */
+ 155   1          PWM_MOTORS_SaveConfig();
+ 156   1      }
+ 157          
+ 158          
+ 159          /*******************************************************************************
+ 160          * Function Name: PWM_MOTORS_Wakeup
+ 161          ********************************************************************************
+ 162          *
+ 163          * Summary:
+ 164          *  Restores and enables the user configuration. Should be called just after
+ 165          *  awaking from sleep.
+ 166          *
+ 167          * Parameters:
+ 168          *  None
+ 169          *
+ 170          * Return:
+ 171          *  None
+ 172          *
+ 173          * Global variables:
+ 174          *  PWM_MOTORS_backup.pwmEnable:  Is used to restore the enable state of
+ 175          *  block on wakeup from sleep mode.
+ 176          *
+ 177          *******************************************************************************/
+C51 COMPILER V9.51   PWM_MOTORS_PM                                                         05/11/2016 14:38:04 PAGE 4   
+
+ 178          void PWM_MOTORS_Wakeup(void) 
+ 179          {
+ 180   1           /* Restore registers values */
+ 181   1          PWM_MOTORS_RestoreConfig();
+ 182   1      
+ 183   1          if(PWM_MOTORS_backup.PWMEnableState != 0u)
+ 184   1          {
+ 185   2              /* Enable component's operation */
+ 186   2              PWM_MOTORS_Enable();
+ 187   2          } /* Do nothing if component's block was disabled before */
+ 188   1      
+ 189   1      }
+ 190          
+ 191          
+ 192          /* [] END OF FILE */
+C51 COMPILER V9.51   PWM_MOTORS_PM                                                         05/11/2016 14:38:04 PAGE 5   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION PWM_MOTORS_SaveConfig (BEGIN)
+                                           ; SOURCE LINE # 42
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 47
+0000 120000      E     LCALL   PWM_MOTORS_ReadPeriod
+0003 900000      R     MOV     DPTR,#PWM_MOTORS_backup+02H
+0006 EF                MOV     A,R7
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 49
+0008 120000      E     LCALL   PWM_MOTORS_ReadCounter
+000B 900000      R     MOV     DPTR,#PWM_MOTORS_backup+01H
+000E EF                MOV     A,R7
+000F F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 64
+0010 120000      E     LCALL   PWM_MOTORS_ReadControlRegister
+0013 900000      R     MOV     DPTR,#PWM_MOTORS_backup+03H
+0016 EF                MOV     A,R7
+0017 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 67
+0018 22                RET     
+             ; FUNCTION PWM_MOTORS_SaveConfig (END)
+
+             ; FUNCTION PWM_MOTORS_RestoreConfig (BEGIN)
+                                           ; SOURCE LINE # 88
+                                           ; SOURCE LINE # 89
+                                           ; SOURCE LINE # 92
+0000 900000      R     MOV     DPTR,#PWM_MOTORS_backup+02H
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+0005 120000      E     LCALL   _PWM_MOTORS_WritePeriod
+                                           ; SOURCE LINE # 95
+0008 900000      R     MOV     DPTR,#PWM_MOTORS_backup+01H
+000B E0                MOVX    A,@DPTR
+000C FF                MOV     R7,A
+000D 120000      E     LCALL   _PWM_MOTORS_WriteCounter
+                                           ; SOURCE LINE # 111
+0010 900000      R     MOV     DPTR,#PWM_MOTORS_backup+03H
+0013 E0                MOVX    A,@DPTR
+0014 FF                MOV     R7,A
+0015 120000      E     LCALL   _PWM_MOTORS_WriteControlRegister
+                                           ; SOURCE LINE # 114
+0018 22                RET     
+             ; FUNCTION PWM_MOTORS_RestoreConfig (END)
+
+             ; FUNCTION PWM_MOTORS_Sleep (BEGIN)
+                                           ; SOURCE LINE # 136
+                                           ; SOURCE LINE # 137
+                                           ; SOURCE LINE # 139
+0000 90647B            MOV     DPTR,#0647BH
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+0005 EF                MOV     A,R7
+0006 30E708            JNB     ACC.7,?C0003
+                                           ; SOURCE LINE # 140
+                                           ; SOURCE LINE # 142
+0009 900000      R     MOV     DPTR,#PWM_MOTORS_backup
+000C 7401              MOV     A,#01H
+000E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 143
+C51 COMPILER V9.51   PWM_MOTORS_PM                                                         05/11/2016 14:38:04 PAGE 6   
+
+000F 8005              SJMP    ?C0004
+0011         ?C0003:
+                                           ; SOURCE LINE # 145
+                                           ; SOURCE LINE # 147
+0011 900000      R     MOV     DPTR,#PWM_MOTORS_backup
+0014 E4                CLR     A
+0015 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 148
+0016         ?C0004:
+                                           ; SOURCE LINE # 152
+0016 120000      E     LCALL   PWM_MOTORS_Stop
+                                           ; SOURCE LINE # 155
+0019 120000      R     LCALL   PWM_MOTORS_SaveConfig
+                                           ; SOURCE LINE # 156
+001C 22                RET     
+             ; FUNCTION PWM_MOTORS_Sleep (END)
+
+             ; FUNCTION PWM_MOTORS_Wakeup (BEGIN)
+                                           ; SOURCE LINE # 178
+                                           ; SOURCE LINE # 179
+                                           ; SOURCE LINE # 181
+0000 120000      R     LCALL   PWM_MOTORS_RestoreConfig
+                                           ; SOURCE LINE # 183
+0003 900000      R     MOV     DPTR,#PWM_MOTORS_backup
+0006 E0                MOVX    A,@DPTR
+0007 FF                MOV     R7,A
+0008 EF                MOV     A,R7
+0009 6003              JZ      ?C0007
+                                           ; SOURCE LINE # 184
+                                           ; SOURCE LINE # 186
+000B 120000      E     LCALL   PWM_MOTORS_Enable
+                                           ; SOURCE LINE # 187
+                                           ; SOURCE LINE # 189
+000E         ?C0007:
+000E 22                RET     
+             ; FUNCTION PWM_MOTORS_Wakeup (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     94    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      4    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

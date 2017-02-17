@@ -1,0 +1,271 @@
+C51 COMPILER V9.51   WATCHDOG_COUNTER_PM                                                   05/11/2016 14:38:14 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE WATCHDOG_COUNTER_PM
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\WATCHDOG_COUNTER_PM.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\Generated_Source\PSoC3\WATCHDOG_COUNTER_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) 
+                    -DB WL(2) PR(.\DP8051_Keil_951\Debug/WATCHDOG_COUNTER_PM.lst) CD OT(2,SIZE) OJ(.\DP8051_Keil_951\Debug\WATCHDOG_COUNTER_P
+                    -M.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: WATCHDOG_COUNTER_PM.c  
+   3          * Version 3.0
+   4          *
+   5          *  Description:
+   6          *    This file provides the power management source code to API for the
+   7          *    Counter.  
+   8          *
+   9          *   Note:
+  10          *     None
+  11          *
+  12          ********************************************************************************
+  13          * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14          * You may use this file only in accordance with the license, terms, conditions, 
+  15          * disclaimers, and limitations in the end user license agreement accompanying 
+  16          * the software package with which this file was provided.
+  17          *******************************************************************************/
+  18          
+  19          #include "WATCHDOG_COUNTER.h"
+  20          
+  21          static WATCHDOG_COUNTER_backupStruct WATCHDOG_COUNTER_backup;
+  22          
+  23          
+  24          /*******************************************************************************
+  25          * Function Name: WATCHDOG_COUNTER_SaveConfig
+  26          ********************************************************************************
+  27          * Summary:
+  28          *     Save the current user configuration
+  29          *
+  30          * Parameters:  
+  31          *  void
+  32          *
+  33          * Return: 
+  34          *  void
+  35          *
+  36          * Global variables:
+  37          *  WATCHDOG_COUNTER_backup:  Variables of this global structure are modified to 
+  38          *  store the values of non retention configuration registers when Sleep() API is 
+  39          *  called.
+  40          *
+  41          *******************************************************************************/
+  42          void WATCHDOG_COUNTER_SaveConfig(void) 
+  43          {
+  44   1          #if (!WATCHDOG_COUNTER_UsingFixedFunction)
+              
+                      WATCHDOG_COUNTER_backup.CounterUdb = WATCHDOG_COUNTER_ReadCounter();
+              
+                      #if(!WATCHDOG_COUNTER_ControlRegRemoved)
+                          WATCHDOG_COUNTER_backup.CounterControlRegister = WATCHDOG_COUNTER_ReadControlRegister();
+                      #endif /* (!WATCHDOG_COUNTER_ControlRegRemoved) */
+              
+                  #endif /* (!WATCHDOG_COUNTER_UsingFixedFunction) */
+C51 COMPILER V9.51   WATCHDOG_COUNTER_PM                                                   05/11/2016 14:38:14 PAGE 2   
+
+  53   1      }
+  54          
+  55          
+  56          /*******************************************************************************
+  57          * Function Name: WATCHDOG_COUNTER_RestoreConfig
+  58          ********************************************************************************
+  59          *
+  60          * Summary:
+  61          *  Restores the current user configuration.
+  62          *
+  63          * Parameters:  
+  64          *  void
+  65          *
+  66          * Return: 
+  67          *  void
+  68          *
+  69          * Global variables:
+  70          *  WATCHDOG_COUNTER_backup:  Variables of this global structure are used to 
+  71          *  restore the values of non retention registers on wakeup from sleep mode.
+  72          *
+  73          *******************************************************************************/
+  74          void WATCHDOG_COUNTER_RestoreConfig(void) 
+  75          {      
+  76   1          #if (!WATCHDOG_COUNTER_UsingFixedFunction)
+              
+                     WATCHDOG_COUNTER_WriteCounter(WATCHDOG_COUNTER_backup.CounterUdb);
+              
+                      #if(!WATCHDOG_COUNTER_ControlRegRemoved)
+                          WATCHDOG_COUNTER_WriteControlRegister(WATCHDOG_COUNTER_backup.CounterControlRegister);
+                      #endif /* (!WATCHDOG_COUNTER_ControlRegRemoved) */
+              
+                  #endif /* (!WATCHDOG_COUNTER_UsingFixedFunction) */
+  85   1      }
+  86          
+  87          
+  88          /*******************************************************************************
+  89          * Function Name: WATCHDOG_COUNTER_Sleep
+  90          ********************************************************************************
+  91          * Summary:
+  92          *     Stop and Save the user configuration
+  93          *
+  94          * Parameters:  
+  95          *  void
+  96          *
+  97          * Return: 
+  98          *  void
+  99          *
+ 100          * Global variables:
+ 101          *  WATCHDOG_COUNTER_backup.enableState:  Is modified depending on the enable 
+ 102          *  state of the block before entering sleep mode.
+ 103          *
+ 104          *******************************************************************************/
+ 105          void WATCHDOG_COUNTER_Sleep(void) 
+ 106          {
+ 107   1          #if(!WATCHDOG_COUNTER_ControlRegRemoved)
+ 108   1              /* Save Counter's enable state */
+ 109   1              if(WATCHDOG_COUNTER_CTRL_ENABLE == (WATCHDOG_COUNTER_CONTROL & WATCHDOG_COUNTER_CTRL_ENABLE))
+ 110   1              {
+ 111   2                  /* Counter is enabled */
+ 112   2                  WATCHDOG_COUNTER_backup.CounterEnableState = 1u;
+ 113   2              }
+ 114   1              else
+C51 COMPILER V9.51   WATCHDOG_COUNTER_PM                                                   05/11/2016 14:38:14 PAGE 3   
+
+ 115   1              {
+ 116   2                  /* Counter is disabled */
+ 117   2                  WATCHDOG_COUNTER_backup.CounterEnableState = 0u;
+ 118   2              }
+ 119   1          #else
+                      WATCHDOG_COUNTER_backup.CounterEnableState = 1u;
+                      if(WATCHDOG_COUNTER_backup.CounterEnableState != 0u)
+                      {
+                          WATCHDOG_COUNTER_backup.CounterEnableState = 0u;
+                      }
+                  #endif /* (!WATCHDOG_COUNTER_ControlRegRemoved) */
+ 126   1          
+ 127   1          WATCHDOG_COUNTER_Stop();
+ 128   1          WATCHDOG_COUNTER_SaveConfig();
+ 129   1      }
+ 130          
+ 131          
+ 132          /*******************************************************************************
+ 133          * Function Name: WATCHDOG_COUNTER_Wakeup
+ 134          ********************************************************************************
+ 135          *
+ 136          * Summary:
+ 137          *  Restores and enables the user configuration
+ 138          *  
+ 139          * Parameters:  
+ 140          *  void
+ 141          *
+ 142          * Return: 
+ 143          *  void
+ 144          *
+ 145          * Global variables:
+ 146          *  WATCHDOG_COUNTER_backup.enableState:  Is used to restore the enable state of 
+ 147          *  block on wakeup from sleep mode.
+ 148          *
+ 149          *******************************************************************************/
+ 150          void WATCHDOG_COUNTER_Wakeup(void) 
+ 151          {
+ 152   1          WATCHDOG_COUNTER_RestoreConfig();
+ 153   1          #if(!WATCHDOG_COUNTER_ControlRegRemoved)
+ 154   1              if(WATCHDOG_COUNTER_backup.CounterEnableState == 1u)
+ 155   1              {
+ 156   2                  /* Enable Counter's operation */
+ 157   2                  WATCHDOG_COUNTER_Enable();
+ 158   2              } /* Do nothing if Counter was disabled before */    
+ 159   1          #endif /* (!WATCHDOG_COUNTER_ControlRegRemoved) */
+ 160   1          
+ 161   1      }
+ 162          
+ 163          
+ 164          /* [] END OF FILE */
+C51 COMPILER V9.51   WATCHDOG_COUNTER_PM                                                   05/11/2016 14:38:14 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION WATCHDOG_COUNTER_SaveConfig (BEGIN)
+                                           ; SOURCE LINE # 42
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 53
+0000 22                RET     
+             ; FUNCTION WATCHDOG_COUNTER_SaveConfig (END)
+
+             ; FUNCTION WATCHDOG_COUNTER_RestoreConfig (BEGIN)
+                                           ; SOURCE LINE # 74
+                                           ; SOURCE LINE # 75
+                                           ; SOURCE LINE # 85
+0000 22                RET     
+             ; FUNCTION WATCHDOG_COUNTER_RestoreConfig (END)
+
+             ; FUNCTION WATCHDOG_COUNTER_Sleep (BEGIN)
+                                           ; SOURCE LINE # 105
+                                           ; SOURCE LINE # 106
+                                           ; SOURCE LINE # 109
+0000 904F0C            MOV     DPTR,#04F0CH
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+0005 EF                MOV     A,R7
+0006 30E008            JNB     ACC.0,?C0003
+                                           ; SOURCE LINE # 110
+                                           ; SOURCE LINE # 112
+0009 900000      R     MOV     DPTR,#WATCHDOG_COUNTER_backup
+000C 7401              MOV     A,#01H
+000E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 113
+000F 8005              SJMP    ?C0004
+0011         ?C0003:
+                                           ; SOURCE LINE # 115
+                                           ; SOURCE LINE # 117
+0011 900000      R     MOV     DPTR,#WATCHDOG_COUNTER_backup
+0014 E4                CLR     A
+0015 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 118
+0016         ?C0004:
+                                           ; SOURCE LINE # 127
+0016 120000      E     LCALL   WATCHDOG_COUNTER_Stop
+                                           ; SOURCE LINE # 128
+0019 120000      R     LCALL   WATCHDOG_COUNTER_SaveConfig
+                                           ; SOURCE LINE # 129
+001C 22                RET     
+             ; FUNCTION WATCHDOG_COUNTER_Sleep (END)
+
+             ; FUNCTION WATCHDOG_COUNTER_Wakeup (BEGIN)
+                                           ; SOURCE LINE # 150
+                                           ; SOURCE LINE # 151
+                                           ; SOURCE LINE # 152
+0000 120000      R     LCALL   WATCHDOG_COUNTER_RestoreConfig
+                                           ; SOURCE LINE # 154
+0003 900000      R     MOV     DPTR,#WATCHDOG_COUNTER_backup
+0006 E0                MOVX    A,@DPTR
+0007 FF                MOV     R7,A
+0008 EF                MOV     A,R7
+0009 B40103            CJNE    A,#01H,?C0007
+                                           ; SOURCE LINE # 155
+                                           ; SOURCE LINE # 157
+C51 COMPILER V9.51   WATCHDOG_COUNTER_PM                                                   05/11/2016 14:38:14 PAGE 5   
+
+000C 120000      E     LCALL   WATCHDOG_COUNTER_Enable
+                                           ; SOURCE LINE # 158
+                                           ; SOURCE LINE # 161
+000F         ?C0007:
+000F 22                RET     
+             ; FUNCTION WATCHDOG_COUNTER_Wakeup (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     47    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      3    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

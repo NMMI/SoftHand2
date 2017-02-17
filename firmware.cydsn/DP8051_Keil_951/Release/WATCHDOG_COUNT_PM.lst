@@ -1,0 +1,249 @@
+C51 COMPILER V9.51   WATCHDOG_COUNT_PM                                                     11/25/2015 10:15:44 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE WATCHDOG_COUNT_PM
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Release\WATCHDOG_COUNT_PM.obj
+COMPILER INVOKED BY: C:\Program Files\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe .\Gene
+                    -rated_Source\PSoC3\WATCHDOG_COUNT_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB DF(ND
+                    -EBUG) WL(2) PR(.\DP8051_Keil_951\Release/WATCHDOG_COUNT_PM.lst) CD OT(8,SPEED) OJ(.\DP8051_Keil_951\Release\WATCHDOG_COU
+                    -NT_PM.obj)
+
+line level    source
+
+*** MESSAGE C286 IN LINE 0 OF (null): license limits optimization to level 5
+   1          /*******************************************************************************
+   2          * File Name: WATCHDOG_COUNT_PM.c
+   3          * Version 1.0
+   4          *
+   5          * Description:
+   6          *  This file provides Low power mode APIs for Count7 component.
+   7          *
+   8          * Note:
+   9          *  None
+  10          *
+  11          ********************************************************************************
+  12          * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13          * You may use this file only in accordance with the license, terms, conditions,
+  14          * disclaimers, and limitations in the end user license agreement accompanying
+  15          * the software package with which this file was provided.
+  16          *******************************************************************************/
+  17          
+  18          #include "WATCHDOG_COUNT.h"
+  19          
+  20          
+  21          WATCHDOG_COUNT_BACKUP_STRUCT WATCHDOG_COUNT_backup;
+  22          
+  23          
+  24          /*******************************************************************************
+  25          * Function Name: WATCHDOG_COUNT_SaveConfig
+  26          ********************************************************************************
+  27          *
+  28          * Summary:
+  29          *  This function saves the component configuration and non-retention registers.
+  30          *  This function is called by the Count7_Sleep() function.
+  31          *
+  32          * Parameters:
+  33          *  None
+  34          *
+  35          * Return:
+  36          *  None
+  37          *
+  38          * Global Variables:
+  39          *  WATCHDOG_COUNT_backup - used to save component configuration and non-
+  40          *  retention registers before enter sleep mode.
+  41          *
+  42          *******************************************************************************/
+  43          void WATCHDOG_COUNT_SaveConfig(void) 
+  44          {
+  45   1          WATCHDOG_COUNT_backup.count = WATCHDOG_COUNT_COUNT_REG;
+  46   1      }
+  47          
+  48          
+  49          /*******************************************************************************
+  50          * Function Name: WATCHDOG_COUNT_Sleep
+  51          ********************************************************************************
+C51 COMPILER V9.51   WATCHDOG_COUNT_PM                                                     11/25/2015 10:15:44 PAGE 2   
+
+  52          *
+  53          * Summary:
+  54          *  This is the preferred API to prepare the component for low power mode
+  55          *  operation. The Count7_Sleep() API saves the current component state using
+  56          *  Count7_SaveConfig() and disables the counter.
+  57          *
+  58          * Parameters:
+  59          *  None
+  60          *
+  61          * Return:
+  62          *  None
+  63          *
+  64          *******************************************************************************/
+  65          void WATCHDOG_COUNT_Sleep(void) 
+  66          {
+  67   1          if(0u != (WATCHDOG_COUNT_AUX_CONTROL_REG & WATCHDOG_COUNT_COUNTER_START))
+  68   1          {
+  69   2              WATCHDOG_COUNT_backup.enableState = 1u;
+  70   2              WATCHDOG_COUNT_Stop();
+  71   2          }
+  72   1          else
+  73   1          {
+  74   2              WATCHDOG_COUNT_backup.enableState = 0u;
+  75   2          }
+  76   1      
+  77   1          WATCHDOG_COUNT_SaveConfig();
+  78   1      }
+  79          
+  80          
+  81          /*******************************************************************************
+  82          * Function Name: WATCHDOG_COUNT_RestoreConfig
+  83          ********************************************************************************
+  84          *
+  85          * Summary:
+  86          *  This function restores the component configuration and non-retention
+  87          *  registers. This function is called by the Count7_Wakeup() function.
+  88          *
+  89          * Parameters:
+  90          *  None
+  91          *
+  92          * Return:
+  93          *  None
+  94          *
+  95          * Global Variables:
+  96          *  WATCHDOG_COUNT_backup - used to save component configuration and
+  97          *  non-retention registers before exit sleep mode.
+  98          *
+  99          *******************************************************************************/
+ 100          void WATCHDOG_COUNT_RestoreConfig(void) 
+ 101          {
+ 102   1          WATCHDOG_COUNT_COUNT_REG = WATCHDOG_COUNT_backup.count;
+ 103   1      }
+ 104          
+ 105          
+ 106          /*******************************************************************************
+ 107          * Function Name: WATCHDOG_COUNT_Wakeup
+ 108          ********************************************************************************
+ 109          *
+ 110          * Summary:
+ 111          *  This is the preferred API to restore the component to the state when
+ 112          *  Count7_Sleep() was called. The Count7_Wakeup() function calls the
+ 113          *  Count7_RestoreConfig() function to restore the configuration.
+C51 COMPILER V9.51   WATCHDOG_COUNT_PM                                                     11/25/2015 10:15:44 PAGE 3   
+
+ 114          *
+ 115          * Parameters:
+ 116          *  None
+ 117          *
+ 118          * Return:
+ 119          *  None
+ 120          *
+ 121          *******************************************************************************/
+ 122          void WATCHDOG_COUNT_Wakeup(void) 
+ 123          {
+ 124   1          WATCHDOG_COUNT_RestoreConfig();
+ 125   1      
+ 126   1          /* Restore enable state */
+ 127   1          if (WATCHDOG_COUNT_backup.enableState != 0u)
+ 128   1          {
+ 129   2              WATCHDOG_COUNT_Enable();
+ 130   2          }
+ 131   1      }
+ 132          
+ 133          
+ 134          /* [] END OF FILE */
+C51 COMPILER V9.51   WATCHDOG_COUNT_PM                                                     11/25/2015 10:15:44 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION WATCHDOG_COUNT_SaveConfig (BEGIN)
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 44
+                                           ; SOURCE LINE # 45
+0000 90657A            MOV     DPTR,#0657AH
+0003 E0                MOVX    A,@DPTR
+0004 900000      R     MOV     DPTR,#WATCHDOG_COUNT_backup+01H
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 46
+0008 22                RET     
+             ; FUNCTION WATCHDOG_COUNT_SaveConfig (END)
+
+             ; FUNCTION WATCHDOG_COUNT_Sleep (BEGIN)
+                                           ; SOURCE LINE # 65
+                                           ; SOURCE LINE # 66
+                                           ; SOURCE LINE # 67
+0000 90659A            MOV     DPTR,#0659AH
+0003 E0                MOVX    A,@DPTR
+0004 5420              ANL     A,#020H
+0006 600B              JZ      ?C0002
+                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 69
+0008 900000      R     MOV     DPTR,#WATCHDOG_COUNT_backup
+000B 7401              MOV     A,#01H
+000D F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 70
+000E 120000      E     LCALL   WATCHDOG_COUNT_Stop
+                                           ; SOURCE LINE # 71
+0011 8005              SJMP    ?C0003
+0013         ?C0002:
+                                           ; SOURCE LINE # 73
+                                           ; SOURCE LINE # 74
+0013 E4                CLR     A
+0014 900000      R     MOV     DPTR,#WATCHDOG_COUNT_backup
+0017 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 75
+0018         ?C0003:
+                                           ; SOURCE LINE # 77
+0018 120000      R     LCALL   WATCHDOG_COUNT_SaveConfig
+                                           ; SOURCE LINE # 78
+001B 22                RET     
+             ; FUNCTION WATCHDOG_COUNT_Sleep (END)
+
+             ; FUNCTION WATCHDOG_COUNT_RestoreConfig (BEGIN)
+                                           ; SOURCE LINE # 100
+                                           ; SOURCE LINE # 101
+                                           ; SOURCE LINE # 102
+0000 900000      R     MOV     DPTR,#WATCHDOG_COUNT_backup+01H
+0003 E0                MOVX    A,@DPTR
+0004 90657A            MOV     DPTR,#0657AH
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 103
+0008 22                RET     
+             ; FUNCTION WATCHDOG_COUNT_RestoreConfig (END)
+
+             ; FUNCTION WATCHDOG_COUNT_Wakeup (BEGIN)
+                                           ; SOURCE LINE # 122
+                                           ; SOURCE LINE # 123
+                                           ; SOURCE LINE # 124
+C51 COMPILER V9.51   WATCHDOG_COUNT_PM                                                     11/25/2015 10:15:44 PAGE 5   
+
+0000 120000      R     LCALL   WATCHDOG_COUNT_RestoreConfig
+                                           ; SOURCE LINE # 127
+0003 900000      R     MOV     DPTR,#WATCHDOG_COUNT_backup
+0006 E0                MOVX    A,@DPTR
+0007 6003              JZ      ?C0007
+                                           ; SOURCE LINE # 128
+                                           ; SOURCE LINE # 129
+0009 120000      E     LCALL   WATCHDOG_COUNT_Enable
+                                           ; SOURCE LINE # 130
+                                           ; SOURCE LINE # 131
+000C         ?C0007:
+000C 22                RET     
+             ; FUNCTION WATCHDOG_COUNT_Wakeup (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      2    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

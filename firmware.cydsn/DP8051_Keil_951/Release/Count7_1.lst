@@ -1,0 +1,394 @@
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE COUNT7_1
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Release\Count7_1.obj
+COMPILER INVOKED BY: C:\Program Files\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe .\Gene
+                    -rated_Source\PSoC3\Count7_1.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB DF(NDEBUG) WL(
+                    -2) PR(.\DP8051_Keil_951\Release/Count7_1.lst) CD OT(8,SPEED) OJ(.\DP8051_Keil_951\Release\Count7_1.obj)
+
+line level    source
+
+*** MESSAGE C286 IN LINE 0 OF (null): license limits optimization to level 5
+   1          /*******************************************************************************
+   2          * File Name: Count7_1.c
+   3          * Version 1.0
+   4          *
+   5          * Description:
+   6          *  This file provides source code for the Count7 component's API.
+   7          *
+   8          * Note:
+   9          *
+  10          ********************************************************************************
+  11          * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12          * You may use this file only in accordance with the license, terms, conditions,
+  13          * disclaimers, and limitations in the end user license agreement accompanying
+  14          * the software package with which this file was provided.
+  15          *******************************************************************************/
+  16          
+  17          #include "Count7_1.h"
+  18          #include "CyLib.h"
+  19          
+  20          
+  21          uint8 Count7_1_initVar = 0u;
+  22          
+  23          
+  24          /*******************************************************************************
+  25          * Function Name: Count7_1_Init
+  26          ********************************************************************************
+  27          *
+  28          * Summary:
+  29          *  Initializes or restores the component according to the parameter editor
+  30          *  settings.
+  31          *
+  32          * Parameters:
+  33          *  None
+  34          *
+  35          * Return:
+  36          *  None
+  37          *
+  38          * Theory:
+  39          *  It is not necessary to call Count7_Init() because the Count7_Start() API
+  40          *  calls this function and is the preferred method to begin component
+  41          *  operation.
+  42          *
+  43          *******************************************************************************/
+  44          void Count7_1_Init(void) 
+  45          {
+  46   1          /* Set the initial period value from parameter editor */
+  47   1          Count7_1_PERIOD_REG = Count7_1_INITIAL_PERIOD;
+  48   1      }
+  49          
+  50          
+  51          /*******************************************************************************
+  52          * Function Name: Count7_1_Enable
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 2   
+
+  53          ********************************************************************************
+  54          *
+  55          * Summary:
+  56          *  Enables the software enable of the counter.
+  57          *
+  58          * Parameters:
+  59          *  None
+  60          *
+  61          * Return:
+  62          *  None
+  63          *
+  64          * Theory:
+  65          *  It is not necessary to call Count7_Enable() because the Count7_Start() API
+  66          *  calls this function, which is the preferred method to begin component
+  67          *  operation.
+  68          *  This API performs modification of auxiliary control register which is a
+  69          *  shared resource so it is required to disable interrupts until the
+  70          *  modification will complete.
+  71          *
+  72          *******************************************************************************/
+  73          void Count7_1_Enable(void) 
+  74          {
+  75   1          uint8 interruptState;
+  76   1      
+  77   1          interruptState = CyEnterCriticalSection();
+  78   1          /* Set the counter start bit in auxiliary control. If routed enable
+  79   1          * isn't used then this will immediately star the Count7 operation.
+  80   1          */
+  81   1          Count7_1_AUX_CONTROL_REG |= Count7_1_COUNTER_START;
+  82   1      
+  83   1          CyExitCriticalSection(interruptState);
+  84   1      }
+  85          
+  86          
+  87          /*******************************************************************************
+  88          * Function Name: Count7_1_Start
+  89          ********************************************************************************
+  90          *
+  91          * Summary:
+  92          *  Performs all of the required initialization for the component and enables
+  93          *  the counter. The first time the routine is executed, the period is set as
+  94          *  configured in the customizer. When called to restart the counter following a
+  95          *  Count7_Stop() call, the current period value is retained.
+  96          *
+  97          * Parameters:
+  98          *  None.
+  99          *
+ 100          * Global Variables:
+ 101          *  Count7_1_initVar - global variable.
+ 102          *
+ 103          * Return:
+ 104          *  None.
+ 105          *
+ 106          *******************************************************************************/
+ 107          void Count7_1_Start(void) 
+ 108          {
+ 109   1          /* If not initialized then perform initialization */
+ 110   1          if(Count7_1_initVar == 0u)
+ 111   1          {
+ 112   2              Count7_1_Init();
+ 113   2              Count7_1_initVar = 1u;
+ 114   2          }
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 3   
+
+ 115   1      
+ 116   1          /* Enable Count7 */
+ 117   1          Count7_1_Enable();
+ 118   1      }
+ 119          
+ 120          
+ 121          /*******************************************************************************
+ 122          * Function Name: Count7_1_Stop
+ 123          ********************************************************************************
+ 124          *
+ 125          * Summary:
+ 126          *  Disables the software enable of the counter.
+ 127          *
+ 128          * Parameters:
+ 129          *  None
+ 130          *
+ 131          * Return:
+ 132          *  None
+ 133          *
+ 134          *******************************************************************************/
+ 135          void Count7_1_Stop(void) 
+ 136          {
+ 137   1          uint8 interruptState;
+ 138   1      
+ 139   1          interruptState = CyEnterCriticalSection();
+ 140   1          /* Clear the counter start bit in auxiliary control. */
+ 141   1          Count7_1_AUX_CONTROL_REG &= (uint8) ~((uint8) Count7_1_COUNTER_START);
+ 142   1      
+ 143   1          CyExitCriticalSection(interruptState);
+ 144   1      }
+ 145          
+ 146          
+ 147          /*******************************************************************************
+ 148          * Function Name: Count7_1_WriteCounter
+ 149          ********************************************************************************
+ 150          *
+ 151          * Summary:
+ 152          *  This function writes the counter directly. The counter should be disabled
+ 153          *  before calling this function.
+ 154          *
+ 155          * Parameters:
+ 156          *  count - Value to be written to counter.
+ 157          *
+ 158          * Return:
+ 159          *  None
+ 160          *
+ 161          *******************************************************************************/
+ 162          void Count7_1_WriteCounter(uint8 count) 
+ 163          {
+ 164   1          Count7_1_COUNT_REG = (count & Count7_1_COUNT_7BIT_MASK);
+ 165   1      }
+ 166          
+ 167          
+ 168          /*******************************************************************************
+ 169          * Function Name: Count7_1_ReadCounter
+ 170          ********************************************************************************
+ 171          *
+ 172          * Summary:
+ 173          *  This function reads the counter value.
+ 174          *
+ 175          * Parameters:
+ 176          *  None
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 4   
+
+ 177          *
+ 178          * Return:
+ 179          *  None
+ 180          *
+ 181          *******************************************************************************/
+ 182          uint8 Count7_1_ReadCounter(void) 
+ 183          {
+ 184   1          return(Count7_1_COUNT_REG & Count7_1_COUNT_7BIT_MASK);
+ 185   1      }
+ 186          
+ 187          
+ 188          /*******************************************************************************
+ 189          * Function Name: Count7_1_WritePeriod
+ 190          ********************************************************************************
+ 191          *
+ 192          * Summary:
+ 193          *  This function writes the period register. The actual period is one greater
+ 194          *  than the value in the period register since the counting sequence starts
+ 195          *  with the period register and counts down to 0 inclusive. The period of the
+ 196          *  counter output does not change until the counter is reloaded following the
+ 197          *  terminal count value of 0 or due to a hardware load signal.
+ 198          *
+ 199          * Parameters:
+ 200          *  period - Period value to be written.
+ 201          *
+ 202          * Return:
+ 203          *  None
+ 204          *
+ 205          *******************************************************************************/
+ 206          void Count7_1_WritePeriod(uint8 period) 
+ 207          {
+ 208   1          Count7_1_PERIOD_REG = period;
+ 209   1      }
+ 210          
+ 211          
+ 212          /*******************************************************************************
+ 213          * Function Name: Count7_1_ReadPeriod
+ 214          ********************************************************************************
+ 215          *
+ 216          * Summary:
+ 217          *  This function reads the period register.
+ 218          *
+ 219          * Parameters:
+ 220          *  None
+ 221          *
+ 222          * Return:
+ 223          *  uint8 - Current period value.
+ 224          *
+ 225          *******************************************************************************/
+ 226          uint8 Count7_1_ReadPeriod(void) 
+ 227          {
+ 228   1          return(Count7_1_PERIOD_REG);
+ 229   1      }
+ 230          
+ 231          
+ 232          /* [] END OF FILE */
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 5   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION Count7_1_Init (BEGIN)
+                                           ; SOURCE LINE # 44
+                                           ; SOURCE LINE # 45
+                                           ; SOURCE LINE # 47
+0000 906482            MOV     DPTR,#06482H
+0003 7403              MOV     A,#03H
+0005 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 48
+0006 22                RET     
+             ; FUNCTION Count7_1_Init (END)
+
+             ; FUNCTION Count7_1_Enable (BEGIN)
+                                           ; SOURCE LINE # 73
+                                           ; SOURCE LINE # 74
+                                           ; SOURCE LINE # 77
+0000 120000      E     LCALL   CyEnterCriticalSection
+;---- Variable 'interruptState' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 81
+0003 906492            MOV     DPTR,#06492H
+0006 E0                MOVX    A,@DPTR
+0007 4420              ORL     A,#020H
+0009 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 83
+000A 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 84
+000D 22                RET     
+             ; FUNCTION Count7_1_Enable (END)
+
+             ; FUNCTION Count7_1_Start (BEGIN)
+                                           ; SOURCE LINE # 107
+                                           ; SOURCE LINE # 108
+                                           ; SOURCE LINE # 110
+0000 900000      R     MOV     DPTR,#Count7_1_initVar
+0003 E0                MOVX    A,@DPTR
+0004 7009              JNZ     ?C0003
+                                           ; SOURCE LINE # 111
+                                           ; SOURCE LINE # 112
+0006 120000      R     LCALL   Count7_1_Init
+                                           ; SOURCE LINE # 113
+0009 900000      R     MOV     DPTR,#Count7_1_initVar
+000C 7401              MOV     A,#01H
+000E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 114
+000F         ?C0003:
+                                           ; SOURCE LINE # 117
+000F 120000      R     LCALL   Count7_1_Enable
+                                           ; SOURCE LINE # 118
+0012 22                RET     
+             ; FUNCTION Count7_1_Start (END)
+
+             ; FUNCTION Count7_1_Stop (BEGIN)
+                                           ; SOURCE LINE # 135
+                                           ; SOURCE LINE # 136
+                                           ; SOURCE LINE # 139
+0000 120000      E     LCALL   CyEnterCriticalSection
+;---- Variable 'interruptState' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 141
+0003 906492            MOV     DPTR,#06492H
+0006 E0                MOVX    A,@DPTR
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 6   
+
+0007 54DF              ANL     A,#0DFH
+0009 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 143
+000A 120000      E     LCALL   _CyExitCriticalSection
+                                           ; SOURCE LINE # 144
+000D 22                RET     
+             ; FUNCTION Count7_1_Stop (END)
+
+             ; FUNCTION _Count7_1_WriteCounter (BEGIN)
+                                           ; SOURCE LINE # 162
+;---- Variable 'count' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 163
+                                           ; SOURCE LINE # 164
+0000 EF                MOV     A,R7
+0001 547F              ANL     A,#07FH
+0003 906472            MOV     DPTR,#06472H
+0006 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 165
+0007 22                RET     
+             ; FUNCTION _Count7_1_WriteCounter (END)
+
+             ; FUNCTION Count7_1_ReadCounter (BEGIN)
+                                           ; SOURCE LINE # 182
+                                           ; SOURCE LINE # 183
+                                           ; SOURCE LINE # 184
+0000 906472            MOV     DPTR,#06472H
+0003 E0                MOVX    A,@DPTR
+0004 547F              ANL     A,#07FH
+0006 FF                MOV     R7,A
+                                           ; SOURCE LINE # 185
+0007         ?C0007:
+0007 22                RET     
+             ; FUNCTION Count7_1_ReadCounter (END)
+
+             ; FUNCTION _Count7_1_WritePeriod (BEGIN)
+                                           ; SOURCE LINE # 206
+;---- Variable 'period' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 207
+                                           ; SOURCE LINE # 208
+0000 906482            MOV     DPTR,#06482H
+0003 EF                MOV     A,R7
+0004 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 209
+0005 22                RET     
+             ; FUNCTION _Count7_1_WritePeriod (END)
+
+             ; FUNCTION Count7_1_ReadPeriod (BEGIN)
+                                           ; SOURCE LINE # 226
+                                           ; SOURCE LINE # 227
+                                           ; SOURCE LINE # 228
+0000 906482            MOV     DPTR,#06482H
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+                                           ; SOURCE LINE # 229
+0005         ?C0009:
+0005 22                RET     
+             ; FUNCTION Count7_1_ReadPeriod (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     82    ----
+C51 COMPILER V9.51   COUNT7_1                                                              11/23/2015 15:59:21 PAGE 7   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

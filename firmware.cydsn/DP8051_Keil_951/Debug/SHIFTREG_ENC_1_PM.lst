@@ -1,0 +1,271 @@
+C51 COMPILER V9.51   SHIFTREG_ENC_1_PM                                                     05/11/2016 14:38:06 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE SHIFTREG_ENC_1_PM
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\SHIFTREG_ENC_1_PM.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\Generated_Source\PSoC3\SHIFTREG_ENC_1_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB
+                    - WL(2) PR(.\DP8051_Keil_951\Debug/SHIFTREG_ENC_1_PM.lst) CD OT(2,SIZE) OJ(.\DP8051_Keil_951\Debug\SHIFTREG_ENC_1_PM.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: SHIFTREG_ENC_1_PM.c
+   3          * Version 2.30
+   4          *
+   5          * Description:
+   6          *  This file provides the API source code for sleep mode support for Shift
+   7          *  Register component.
+   8          *
+   9          * Note:
+  10          *
+  11          ********************************************************************************
+  12          * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13          * You may use this file only in accordance with the license, terms, conditions,
+  14          * disclaimers, and limitations in the end user license agreement accompanying
+  15          * the software package with which this file was provided.
+  16          *******************************************************************************/
+  17          
+  18          #include "SHIFTREG_ENC_1.h"
+  19          
+  20          static SHIFTREG_ENC_1_BACKUP_STRUCT SHIFTREG_ENC_1_backup =
+  21          {
+  22              SHIFTREG_ENC_1_DISABLED,
+  23          
+  24              ((uint32) SHIFTREG_ENC_1_DEFAULT_A0),
+  25              ((uint32) SHIFTREG_ENC_1_DEFAULT_A1),
+  26          
+  27              #if(CY_UDB_V0)
+                      ((uint32) SHIFTREG_ENC_1_INT_SRC),
+                  #endif /* (CY_UDB_V0) */
+  30          };
+  31          
+  32          
+  33          /*******************************************************************************
+  34          * Function Name: SHIFTREG_ENC_1_SaveConfig
+  35          ********************************************************************************
+  36          *
+  37          * Summary:
+  38          *  Saves Shift Register configuration.
+  39          *
+  40          * Parameters:
+  41          *  None.
+  42          *
+  43          * Return:
+  44          *  None.
+  45          *
+  46          * Reentrant:
+  47          *  No.
+  48          *
+  49          *******************************************************************************/
+  50          void SHIFTREG_ENC_1_SaveConfig(void) 
+  51          {
+  52   1          /* Store working registers A0 and A1 */
+  53   1          SHIFTREG_ENC_1_backup.saveSrA0Reg   = CY_GET_REG24(SHIFTREG_ENC_1_SHIFT_REG_LSB_PTR);
+C51 COMPILER V9.51   SHIFTREG_ENC_1_PM                                                     05/11/2016 14:38:06 PAGE 2   
+
+  54   1          SHIFTREG_ENC_1_backup.saveSrA1Reg   = CY_GET_REG24(SHIFTREG_ENC_1_SHIFT_REG_VALUE_LSB_PTR);
+  55   1      
+  56   1          #if(CY_UDB_V0)
+                      SHIFTREG_ENC_1_backup.saveSrIntMask = SHIFTREG_ENC_1_SR_STATUS_MASK;
+                  #endif /* (CY_UDB_V0) */
+  59   1      }
+  60          
+  61          
+  62          /*******************************************************************************
+  63          * Function Name: SHIFTREG_ENC_1_RestoreConfig
+  64          ********************************************************************************
+  65          *
+  66          * Summary:
+  67          *  Restores Shift Register configuration.
+  68          *
+  69          * Parameters:
+  70          *  None.
+  71          *
+  72          * Return:
+  73          *  None.
+  74          *
+  75          *******************************************************************************/
+  76          void SHIFTREG_ENC_1_RestoreConfig(void) 
+  77          {
+  78   1          /* Restore working registers A0 and A1 */
+  79   1          CY_SET_REG24(SHIFTREG_ENC_1_SHIFT_REG_LSB_PTR, SHIFTREG_ENC_1_backup.saveSrA0Reg);
+  80   1          CY_SET_REG24(SHIFTREG_ENC_1_SHIFT_REG_VALUE_LSB_PTR, SHIFTREG_ENC_1_backup.saveSrA1Reg);
+  81   1      
+  82   1          #if(CY_UDB_V0)
+                      SHIFTREG_ENC_1_SR_STATUS_MASK = ((uint8) SHIFTREG_ENC_1_backup.saveSrIntMask);
+                  #endif /* (CY_UDB_V0) */
+  85   1      }
+  86          
+  87          
+  88          /*******************************************************************************
+  89          * Function Name: SHIFTREG_ENC_1_Sleep
+  90          ********************************************************************************
+  91          *
+  92          * Summary:
+  93          *  Prepare the component to enter a Sleep mode.
+  94          *
+  95          * Parameters:
+  96          *  None.
+  97          *
+  98          * Return:
+  99          *  None.
+ 100          *
+ 101          * Reentrant:
+ 102          *  No.
+ 103          *
+ 104          *******************************************************************************/
+ 105          void SHIFTREG_ENC_1_Sleep(void) 
+ 106          {
+ 107   1          SHIFTREG_ENC_1_backup.enableState = ((uint8) SHIFTREG_ENC_1_IS_ENABLED);
+ 108   1      
+ 109   1          SHIFTREG_ENC_1_Stop();
+ 110   1          SHIFTREG_ENC_1_SaveConfig();
+ 111   1      }
+ 112          
+ 113          
+ 114          /*******************************************************************************
+ 115          * Function Name: SHIFTREG_ENC_1_Wakeup
+C51 COMPILER V9.51   SHIFTREG_ENC_1_PM                                                     05/11/2016 14:38:06 PAGE 3   
+
+ 116          ********************************************************************************
+ 117          *
+ 118          * Summary:
+ 119          *  Restores and enables the user configuration.
+ 120          *
+ 121          * Parameters:
+ 122          *  None.
+ 123          *
+ 124          * Return:
+ 125          *  None.
+ 126          *
+ 127          *******************************************************************************/
+ 128          void SHIFTREG_ENC_1_Wakeup(void) 
+ 129          {
+ 130   1          SHIFTREG_ENC_1_RestoreConfig();
+ 131   1      
+ 132   1          if(0u != SHIFTREG_ENC_1_backup.enableState)
+ 133   1          {
+ 134   2              SHIFTREG_ENC_1_Enable();
+ 135   2          }
+ 136   1      }
+ 137          
+ 138          
+ 139          /* [] END OF FILE */
+C51 COMPILER V9.51   SHIFTREG_ENC_1_PM                                                     05/11/2016 14:38:06 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION SHIFTREG_ENC_1_SaveConfig (BEGIN)
+                                           ; SOURCE LINE # 50
+                                           ; SOURCE LINE # 51
+                                           ; SOURCE LINE # 53
+0000 7B02              MOV     R3,#02H
+0002 7A65              MOV     R2,#065H
+0004 7906              MOV     R1,#06H
+0006 120000      E     LCALL   _cyread24_nodpx
+0009 900000      R     MOV     DPTR,#SHIFTREG_ENC_1_backup+01H
+000C 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 54
+000F 7B02              MOV     R3,#02H
+0011 7A65              MOV     R2,#065H
+0013 7916              MOV     R1,#016H
+0015 120000      E     LCALL   _cyread24_nodpx
+0018 900000      R     MOV     DPTR,#SHIFTREG_ENC_1_backup+05H
+001B 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 59
+001E 22                RET     
+             ; FUNCTION SHIFTREG_ENC_1_SaveConfig (END)
+
+             ; FUNCTION SHIFTREG_ENC_1_RestoreConfig (BEGIN)
+                                           ; SOURCE LINE # 76
+                                           ; SOURCE LINE # 77
+                                           ; SOURCE LINE # 79
+0000 7B02              MOV     R3,#02H
+0002 7A65              MOV     R2,#065H
+0004 7906              MOV     R1,#06H
+0006 900000      R     MOV     DPTR,#SHIFTREG_ENC_1_backup+01H
+0009 120000      E     LCALL   ?C?LLDXDATA
+000C 120000      E     LCALL   _cywrite24_nodpx
+                                           ; SOURCE LINE # 80
+000F 7B02              MOV     R3,#02H
+0011 7A65              MOV     R2,#065H
+0013 7916              MOV     R1,#016H
+0015 900000      R     MOV     DPTR,#SHIFTREG_ENC_1_backup+05H
+0018 120000      E     LCALL   ?C?LLDXDATA
+001B 120000      E     LCALL   _cywrite24_nodpx
+                                           ; SOURCE LINE # 85
+001E 22                RET     
+             ; FUNCTION SHIFTREG_ENC_1_RestoreConfig (END)
+
+             ; FUNCTION SHIFTREG_ENC_1_Sleep (BEGIN)
+                                           ; SOURCE LINE # 105
+                                           ; SOURCE LINE # 106
+                                           ; SOURCE LINE # 107
+0000 906578            MOV     DPTR,#06578H
+0003 E0                MOVX    A,@DPTR
+0004 FF                MOV     R7,A
+0005 EF                MOV     A,R7
+0006 5401              ANL     A,#01H
+0008 FF                MOV     R7,A
+0009 7E00              MOV     R6,#00H
+000B EF                MOV     A,R7
+000C 4E                ORL     A,R6
+000D 6004              JZ      ?C0003
+000F 7F01              MOV     R7,#01H
+0011 8002              SJMP    ?C0004
+0013         ?C0003:
+C51 COMPILER V9.51   SHIFTREG_ENC_1_PM                                                     05/11/2016 14:38:06 PAGE 5   
+
+0013 7F00              MOV     R7,#00H
+0015         ?C0004:
+0015 900000      R     MOV     DPTR,#SHIFTREG_ENC_1_backup
+0018 EF                MOV     A,R7
+0019 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 109
+001A 120000      E     LCALL   SHIFTREG_ENC_1_Stop
+                                           ; SOURCE LINE # 110
+001D 120000      R     LCALL   SHIFTREG_ENC_1_SaveConfig
+                                           ; SOURCE LINE # 111
+0020 22                RET     
+             ; FUNCTION SHIFTREG_ENC_1_Sleep (END)
+
+             ; FUNCTION SHIFTREG_ENC_1_Wakeup (BEGIN)
+                                           ; SOURCE LINE # 128
+                                           ; SOURCE LINE # 129
+                                           ; SOURCE LINE # 130
+0000 120000      R     LCALL   SHIFTREG_ENC_1_RestoreConfig
+                                           ; SOURCE LINE # 132
+0003 900000      R     MOV     DPTR,#SHIFTREG_ENC_1_backup
+0006 E0                MOVX    A,@DPTR
+0007 FF                MOV     R7,A
+0008 EF                MOV     A,R7
+0009 6003              JZ      ?C0007
+                                           ; SOURCE LINE # 133
+                                           ; SOURCE LINE # 134
+000B 120000      E     LCALL   SHIFTREG_ENC_1_Enable
+                                           ; SOURCE LINE # 135
+                                           ; SOURCE LINE # 136
+000E         ?C0007:
+000E 22                RET     
+             ; FUNCTION SHIFTREG_ENC_1_Wakeup (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    110    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      9    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

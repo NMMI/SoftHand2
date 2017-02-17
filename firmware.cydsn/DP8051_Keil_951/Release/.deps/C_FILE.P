@@ -1,0 +1,206 @@
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/DP8051_Keil_951/Release/command_processing.obj : //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_AMux.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_Ext_CP_Clk.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_IRQ.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_SOC.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_STATUS.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_theACLK.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Bootloadable.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CLOCK_ENCODERS.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CLOCK_PWM.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CLOCK_UART.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/COUNTER_ENC.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_1.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_1_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_2.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_2_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CYDMAC.H //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CYFITTER.H //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CyDmac.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CyFlash.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CyLib.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CySpc.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/DMA_dma.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EEPROM.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_1.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_1_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_2.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_2_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FF_STATUS.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE_REG.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ISR_RS485_RX.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ISR_WATCHDOG.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LED.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LED_REG.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LED_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LEFT_RIGHT.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LEFT_RIGHT_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1A.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1A_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1B.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1B_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2A.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2A_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2B.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2B_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_DIR.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_EN.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_EN_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_ON_OFF.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MY_TIMER.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/PACER_TIMER.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/PSoC3_8051.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/PWM_MOTORS.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RESET_COUNTERS.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RESET_FF.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RS485_CTS.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RS_485_EN.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RS_485_EN_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_1.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_2.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_3.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_4.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_A.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_A_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_B.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_B_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_C.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_C_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_A.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_A_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_B.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_B_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_C.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_C_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/UART_RS485.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/UP_DOWN.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/UP_DOWN_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/USB_VDD.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/USB_VDD_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/VOLTAGE_SENSE.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/VOLTAGE_SENSE_aliases.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_CLK.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_COUNTER.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_ENABLER.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_REFRESH.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cyPm.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cydevice.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cydevice_trm.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cydisabledsheets.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cyfitter.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cyfitter_cfg.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cypins.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cytypes.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/project.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/timer_clock.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/command_processing.c //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/command_processing.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/commands.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/device.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/globals.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/interruptions.h //Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/utils.h 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_AMux.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_Ext_CP_Clk.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_IRQ.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_SOC.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_STATUS.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ADC_theACLK.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Bootloadable.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CLOCK_ENCODERS.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CLOCK_PWM.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CLOCK_UART.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/COUNTER_ENC.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_1.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_1_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_2.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CURRENT_SENSE_2_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CYDMAC.H : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CYFITTER.H : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CyFlash.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CyLib.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/CySpc.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/DMA_dma.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EEPROM.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_1.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_1_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_2.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/EMG_2_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FF_STATUS.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE_REG.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ISR_RS485_RX.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/ISR_WATCHDOG.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LED.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LED_REG.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LED_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LEFT_RIGHT.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/LEFT_RIGHT_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1A.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1A_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1B.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_1B_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2A.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2A_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2B.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_2B_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_DIR.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_EN.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_EN_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MOTOR_ON_OFF.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/MY_TIMER.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/PACER_TIMER.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/PSoC3_8051.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/PWM_MOTORS.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RESET_COUNTERS.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RESET_FF.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RS485_CTS.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RS_485_EN.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/RS_485_EN_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_1.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_2.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_3.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/SHIFTREG_ENC_4.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_A.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_A_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_B.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_B_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_C.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_1_C_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_A.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_A_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_B.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_B_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_C.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/Signal_2_C_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/UART_RS485.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/UP_DOWN.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/UP_DOWN_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/USB_VDD.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/USB_VDD_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/VOLTAGE_SENSE.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/VOLTAGE_SENSE_aliases.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_CLK.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_COUNTER.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_ENABLER.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/WATCHDOG_REFRESH.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cyPm.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cydevice.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cydevice_trm.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cydisabledsheets.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cyfitter_cfg.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cypins.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/cytypes.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/project.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/Generated_Source/PSoC3/timer_clock.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/command_processing.c : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/command_processing.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/commands.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/device.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/globals.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/interruptions.h : 
+
+//Mac/Home/Desktop/v6.0.0/hand_firmware_joystick_opt/firmware.cydsn/utils.h : 
+

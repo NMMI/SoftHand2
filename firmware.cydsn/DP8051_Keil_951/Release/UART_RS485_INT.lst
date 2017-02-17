@@ -1,0 +1,463 @@
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE UART_RS485_INT
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Release\UART_RS485_INT.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -Generated_Source\PSoC3\UART_RS485_INT.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB DF(N
+                    -DEBUG) WL(2) PR(.\DP8051_Keil_951\Release/UART_RS485_INT.lst) CD OT(8,SPEED) OJ(.\DP8051_Keil_951\Release\UART_RS485_INT
+                    -.obj)
+
+line level    source
+
+*** MESSAGE C286 IN LINE 0 OF (null): license limits optimization to level 5
+   1          /*******************************************************************************
+   2          * File Name: UART_RS485INT.c
+   3          * Version 2.50
+   4          *
+   5          * Description:
+   6          *  This file provides all Interrupt Service functionality of the UART component
+   7          *
+   8          ********************************************************************************
+   9          * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10          * You may use this file only in accordance with the license, terms, conditions,
+  11          * disclaimers, and limitations in the end user license agreement accompanying
+  12          * the software package with which this file was provided.
+  13          *******************************************************************************/
+  14          
+  15          #include "UART_RS485.h"
+  16          
+  17          
+  18          
+  19          /***************************************
+  20          * Custom Declarations
+  21          ***************************************/
+  22          /* `#START CUSTOM_DECLARATIONS` Place your declaration here */
+  23          
+  24          /* `#END` */
+  25          
+  26          #if (UART_RS485_RX_INTERRUPT_ENABLED && (UART_RS485_RX_ENABLED || UART_RS485_HD_ENABLED))
+  27              /*******************************************************************************
+  28              * Function Name: UART_RS485_RXISR
+  29              ********************************************************************************
+  30              *
+  31              * Summary:
+  32              *  Interrupt Service Routine for RX portion of the UART
+  33              *
+  34              * Parameters:
+  35              *  None.
+  36              *
+  37              * Return:
+  38              *  None.
+  39              *
+  40              * Global Variables:
+  41              *  UART_RS485_rxBuffer - RAM buffer pointer for save received data.
+  42              *  UART_RS485_rxBufferWrite - cyclic index for write to rxBuffer,
+  43              *     increments after each byte saved to buffer.
+  44              *  UART_RS485_rxBufferRead - cyclic index for read from rxBuffer,
+  45              *     checked to detect overflow condition.
+  46              *  UART_RS485_rxBufferOverflow - software overflow flag. Set to one
+  47              *     when UART_RS485_rxBufferWrite index overtakes
+  48              *     UART_RS485_rxBufferRead index.
+  49              *  UART_RS485_rxBufferLoopDetect - additional variable to detect overflow.
+  50              *     Set to one when UART_RS485_rxBufferWrite is equal to
+  51              *    UART_RS485_rxBufferRead
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 2   
+
+  52              *  UART_RS485_rxAddressMode - this variable contains the Address mode,
+  53              *     selected in customizer or set by UART_SetRxAddressMode() API.
+  54              *  UART_RS485_rxAddressDetected - set to 1 when correct address received,
+  55              *     and analysed to store following addressed data bytes to the buffer.
+  56              *     When not correct address received, set to 0 to skip following data bytes.
+  57              *
+  58              *******************************************************************************/
+  59              CY_ISR(UART_RS485_RXISR)
+  60              {
+  61   1              uint8 readData;
+  62   1              uint8 readStatus;
+  63   1              uint8 increment_pointer = 0u;
+  64   1      
+  65   1          #if(CY_PSOC3)
+  66   1              uint8 int_en;
+  67   1          #endif /* (CY_PSOC3) */
+  68   1      
+  69   1          #ifdef UART_RS485_RXISR_ENTRY_CALLBACK
+                      UART_RS485_RXISR_EntryCallback();
+                  #endif /* UART_RS485_RXISR_ENTRY_CALLBACK */
+  72   1      
+  73   1              /* User code required at start of ISR */
+  74   1              /* `#START UART_RS485_RXISR_START` */
+  75   1      
+  76   1              /* `#END` */
+  77   1      
+  78   1          #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
+  79   1              int_en = EA;
+  80   1              CyGlobalIntEnable;
+  81   1          #endif /* (CY_PSOC3) */
+  82   1      
+  83   1              do
+  84   1              {
+  85   2                  /* Read receiver status register */
+  86   2                  readStatus = UART_RS485_RXSTATUS_REG;
+  87   2                  /* Copy the same status to readData variable for backward compatibility support 
+  88   2                  *  of the user code in UART_RS485_RXISR_ERROR` section. 
+  89   2                  */
+  90   2                  readData = readStatus;
+  91   2      
+  92   2                  if((readStatus & (UART_RS485_RX_STS_BREAK | 
+  93   2                                  UART_RS485_RX_STS_PAR_ERROR |
+  94   2                                  UART_RS485_RX_STS_STOP_ERROR | 
+  95   2                                  UART_RS485_RX_STS_OVERRUN)) != 0u)
+  96   2                  {
+  97   3                      /* ERROR handling. */
+  98   3                      UART_RS485_errorStatus |= readStatus & ( UART_RS485_RX_STS_BREAK | 
+  99   3                                                                  UART_RS485_RX_STS_PAR_ERROR | 
+ 100   3                                                                  UART_RS485_RX_STS_STOP_ERROR | 
+ 101   3                                                                  UART_RS485_RX_STS_OVERRUN);
+ 102   3                      /* `#START UART_RS485_RXISR_ERROR` */
+ 103   3      
+ 104   3                      /* `#END` */
+ 105   3                      
+ 106   3                  #ifdef UART_RS485_RXISR_ERROR_CALLBACK
+                              UART_RS485_RXISR_ERROR_Callback();
+                          #endif /* UART_RS485_RXISR_ERROR_CALLBACK */
+ 109   3                  }
+ 110   2                  
+ 111   2                  if((readStatus & UART_RS485_RX_STS_FIFO_NOTEMPTY) != 0u)
+ 112   2                  {
+ 113   3                      /* Read data from the RX data register */
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 3   
+
+ 114   3                      readData = UART_RS485_RXDATA_REG;
+ 115   3                  #if (UART_RS485_RXHW_ADDRESS_ENABLED)
+                              if(UART_RS485_rxAddressMode == (uint8)UART_RS485__B_UART__AM_SW_DETECT_TO_BUFFER)
+                              {
+                                  if((readStatus & UART_RS485_RX_STS_MRKSPC) != 0u)
+                                  {
+                                      if ((readStatus & UART_RS485_RX_STS_ADDR_MATCH) != 0u)
+                                      {
+                                          UART_RS485_rxAddressDetected = 1u;
+                                      }
+                                      else
+                                      {
+                                          UART_RS485_rxAddressDetected = 0u;
+                                      }
+                                  }
+                                  if(UART_RS485_rxAddressDetected != 0u)
+                                  {   /* Store only addressed data */
+                                      UART_RS485_rxBuffer[UART_RS485_rxBufferWrite] = readData;
+                                      increment_pointer = 1u;
+                                  }
+                              }
+                              else /* Without software addressing */
+                              {
+                                  UART_RS485_rxBuffer[UART_RS485_rxBufferWrite] = readData;
+                                  increment_pointer = 1u;
+                              }
+                          #else  /* Without addressing */
+ 141   3                      UART_RS485_rxBuffer[UART_RS485_rxBufferWrite] = readData;
+ 142   3                      increment_pointer = 1u;
+ 143   3                  #endif /* (UART_RS485_RXHW_ADDRESS_ENABLED) */
+ 144   3      
+ 145   3                      /* Do not increment buffer pointer when skip not addressed data */
+ 146   3                      if(increment_pointer != 0u)
+ 147   3                      {
+ 148   4                          if(UART_RS485_rxBufferLoopDetect != 0u)
+ 149   4                          {   /* Set Software Buffer status Overflow */
+ 150   5                              UART_RS485_rxBufferOverflow = 1u;
+ 151   5                          }
+ 152   4                          /* Set next pointer. */
+ 153   4                          UART_RS485_rxBufferWrite++;
+ 154   4      
+ 155   4                          /* Check pointer for a loop condition */
+ 156   4                          if(UART_RS485_rxBufferWrite >= UART_RS485_RX_BUFFER_SIZE)
+ 157   4                          {
+ 158   5                              UART_RS485_rxBufferWrite = 0u;
+ 159   5                          }
+ 160   4      
+ 161   4                          /* Detect pre-overload condition and set flag */
+ 162   4                          if(UART_RS485_rxBufferWrite == UART_RS485_rxBufferRead)
+ 163   4                          {
+ 164   5                              UART_RS485_rxBufferLoopDetect = 1u;
+ 165   5                              /* When Hardware Flow Control selected */
+ 166   5                              #if (UART_RS485_FLOW_CONTROL != 0u)
+                                          /* Disable RX interrupt mask, it is enabled when user read data from the buffe
+             -r using APIs */
+                                          UART_RS485_RXSTATUS_MASK_REG  &= (uint8)~UART_RS485_RX_STS_FIFO_NOTEMPTY;
+                                          CyIntClearPending(UART_RS485_RX_VECT_NUM);
+                                          break; /* Break the reading of the FIFO loop, leave the data there for generat
+             -ing RTS signal */
+                                      #endif /* (UART_RS485_FLOW_CONTROL != 0u) */
+ 172   5                          }
+ 173   4                      }
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 4   
+
+ 174   3                  }
+ 175   2              }while((readStatus & UART_RS485_RX_STS_FIFO_NOTEMPTY) != 0u);
+ 176   1      
+ 177   1              /* User code required at end of ISR (Optional) */
+ 178   1              /* `#START UART_RS485_RXISR_END` */
+ 179   1      
+ 180   1              /* `#END` */
+ 181   1      
+ 182   1          #ifdef UART_RS485_RXISR_EXIT_CALLBACK
+                      UART_RS485_RXISR_ExitCallback();
+                  #endif /* UART_RS485_RXISR_EXIT_CALLBACK */
+ 185   1      
+ 186   1          #if(CY_PSOC3)
+ 187   1              EA = int_en;
+ 188   1          #endif /* (CY_PSOC3) */
+ 189   1          }
+ 190              
+ 191          #endif /* (UART_RS485_RX_INTERRUPT_ENABLED && (UART_RS485_RX_ENABLED || UART_RS485_HD_ENABLED)) */
+ 192          
+ 193          
+ 194          #if (UART_RS485_TX_INTERRUPT_ENABLED && UART_RS485_TX_ENABLED)
+                  /*******************************************************************************
+                  * Function Name: UART_RS485_TXISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  * Interrupt Service Routine for the TX portion of the UART
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  * Global Variables:
+                  *  UART_RS485_txBuffer - RAM buffer pointer for transmit data from.
+                  *  UART_RS485_txBufferRead - cyclic index for read and transmit data
+                  *     from txBuffer, increments after each transmitted byte.
+                  *  UART_RS485_rxBufferWrite - cyclic index for write to txBuffer,
+                  *     checked to detect available for transmission bytes.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(UART_RS485_TXISR)
+                  {
+                  #if(CY_PSOC3)
+                      uint8 int_en;
+                  #endif /* (CY_PSOC3) */
+              
+                  #ifdef UART_RS485_TXISR_ENTRY_CALLBACK
+                      UART_RS485_TXISR_EntryCallback();
+                  #endif /* UART_RS485_TXISR_ENTRY_CALLBACK */
+              
+                      /* User code required at start of ISR */
+                      /* `#START UART_RS485_TXISR_START` */
+              
+                      /* `#END` */
+              
+                  #if(CY_PSOC3)   /* Make sure nested interrupt is enabled */
+                      int_en = EA;
+                      CyGlobalIntEnable;
+                  #endif /* (CY_PSOC3) */
+              
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 5   
+
+                      while((UART_RS485_txBufferRead != UART_RS485_txBufferWrite) &&
+                           ((UART_RS485_TXSTATUS_REG & UART_RS485_TX_STS_FIFO_FULL) == 0u))
+                      {
+                          /* Check pointer wrap around */
+                          if(UART_RS485_txBufferRead >= UART_RS485_TX_BUFFER_SIZE)
+                          {
+                              UART_RS485_txBufferRead = 0u;
+                          }
+              
+                          UART_RS485_TXDATA_REG = UART_RS485_txBuffer[UART_RS485_txBufferRead];
+              
+                          /* Set next pointer */
+                          UART_RS485_txBufferRead++;
+                      }
+              
+                      /* User code required at end of ISR (Optional) */
+                      /* `#START UART_RS485_TXISR_END` */
+              
+                      /* `#END` */
+              
+                  #ifdef UART_RS485_TXISR_EXIT_CALLBACK
+                      UART_RS485_TXISR_ExitCallback();
+                  #endif /* UART_RS485_TXISR_EXIT_CALLBACK */
+              
+                  #if(CY_PSOC3)
+                      EA = int_en;
+                  #endif /* (CY_PSOC3) */
+                 }
+              #endif /* (UART_RS485_TX_INTERRUPT_ENABLED && UART_RS485_TX_ENABLED) */
+ 265          
+ 266          
+ 267          /* [] END OF FILE */
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 6   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION UART_RS485_RXISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C085              PUSH    DPH1
+0008 C084              PUSH    DPL1
+000A C086              PUSH    DPS
+000C 758600            MOV     DPS,#00H
+000F C000        E     PUSH    ?C?XPAGE1SFR
+0011 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0014 C0D0              PUSH    PSW
+0016 75D000            MOV     PSW,#00H
+0019 C001              PUSH    AR1
+001B C002              PUSH    AR2
+001D C003              PUSH    AR3
+001F C006              PUSH    AR6
+0021 C007              PUSH    AR7
+                                           ; SOURCE LINE # 59
+                                           ; SOURCE LINE # 63
+;---- Variable 'increment_pointer' assigned to Register 'R3' ----
+0023 E4                CLR     A
+0024 FB                MOV     R3,A
+                                           ; SOURCE LINE # 79
+0025 A2AF              MOV     C,EA
+0027 33                RLC     A
+;---- Variable 'int_en' assigned to Register 'R2' ----
+0028 FA                MOV     R2,A
+                                           ; SOURCE LINE # 80
+0029 D2AF              SETB    EA
+002B 9044F4            MOV     DPTR,#044F4H
+002E 74FD              MOV     A,#0FDH
+0030 F0                MOVX    @DPTR,A
+0031         ?C0003:
+                                           ; SOURCE LINE # 84
+                                           ; SOURCE LINE # 86
+0031 906467            MOV     DPTR,#06467H
+0034 E0                MOVX    A,@DPTR
+0035 FF                MOV     R7,A
+;---- Variable 'readStatus' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 90
+;---- Variable 'readData' assigned to Register 'R6' ----
+0036 FE                MOV     R6,A
+                                           ; SOURCE LINE # 95
+0037 541E              ANL     A,#01EH
+0039 F9                MOV     R1,A
+003A 6006              JZ      ?C0004
+                                           ; SOURCE LINE # 96
+                                           ; SOURCE LINE # 101
+003C 900000      E     MOV     DPTR,#UART_RS485_errorStatus
+003F E0                MOVX    A,@DPTR
+0040 49                ORL     A,R1
+0041 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 109
+0042         ?C0004:
+                                           ; SOURCE LINE # 111
+0042 EF                MOV     A,R7
+0043 30E545            JNB     ACC.5,?C0001
+                                           ; SOURCE LINE # 112
+                                           ; SOURCE LINE # 114
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 7   
+
+0046 906547            MOV     DPTR,#06547H
+0049 E0                MOVX    A,@DPTR
+004A FE                MOV     R6,A
+                                           ; SOURCE LINE # 141
+004B 900000      E     MOV     DPTR,#UART_RS485_rxBufferWrite
+004E E0                MOVX    A,@DPTR
+004F 2400        E     ADD     A,#LOW UART_RS485_rxBuffer
+0051 F582              MOV     DPL,A
+0053 E4                CLR     A
+0054 3400        E     ADDC    A,#HIGH UART_RS485_rxBuffer
+0056 F583              MOV     DPH,A
+0058 EE                MOV     A,R6
+0059 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 142
+005A 7B01              MOV     R3,#01H
+                                           ; SOURCE LINE # 146
+005C EB                MOV     A,R3
+005D 602C              JZ      ?C0001
+                                           ; SOURCE LINE # 147
+                                           ; SOURCE LINE # 148
+005F 900000      E     MOV     DPTR,#UART_RS485_rxBufferLoopDetect
+0062 E0                MOVX    A,@DPTR
+0063 6006              JZ      ?C0007
+                                           ; SOURCE LINE # 149
+                                           ; SOURCE LINE # 150
+0065 900000      E     MOV     DPTR,#UART_RS485_rxBufferOverflow
+0068 7401              MOV     A,#01H
+006A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 151
+006B         ?C0007:
+                                           ; SOURCE LINE # 153
+006B 900000      E     MOV     DPTR,#UART_RS485_rxBufferWrite
+006E E0                MOVX    A,@DPTR
+006F 04                INC     A
+0070 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 156
+0071 E0                MOVX    A,@DPTR
+0072 C3                CLR     C
+0073 9420              SUBB    A,#020H
+0075 4002              JC      ?C0008
+                                           ; SOURCE LINE # 157
+                                           ; SOURCE LINE # 158
+0077 E4                CLR     A
+0078 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 159
+0079         ?C0008:
+                                           ; SOURCE LINE # 162
+0079 900000      E     MOV     DPTR,#UART_RS485_rxBufferRead
+007C E0                MOVX    A,@DPTR
+007D FE                MOV     R6,A
+007E 900000      E     MOV     DPTR,#UART_RS485_rxBufferWrite
+0081 E0                MOVX    A,@DPTR
+0082 B50606            CJNE    A,AR6,?C0001
+                                           ; SOURCE LINE # 163
+                                           ; SOURCE LINE # 164
+0085 900000      E     MOV     DPTR,#UART_RS485_rxBufferLoopDetect
+0088 7401              MOV     A,#01H
+008A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 172
+                                           ; SOURCE LINE # 173
+                                           ; SOURCE LINE # 174
+                                           ; SOURCE LINE # 175
+C51 COMPILER V9.51   UART_RS485_INT                                                        02/07/2017 16:12:10 PAGE 8   
+
+008B         ?C0001:
+008B EF                MOV     A,R7
+008C 20E5A2            JB      ACC.5,?C0003
+                                           ; SOURCE LINE # 187
+008F AF02              MOV     R7,AR2
+0091 EA                MOV     A,R2
+0092 24FF              ADD     A,#0FFH
+0094 92AF              MOV     EA,C
+                                           ; SOURCE LINE # 189
+0096 D007              POP     AR7
+0098 D006              POP     AR6
+009A D003              POP     AR3
+009C D002              POP     AR2
+009E D001              POP     AR1
+00A0 D0D0              POP     PSW
+00A2 D000        E     POP     ?C?XPAGE1SFR
+00A4 D086              POP     DPS
+00A6 D084              POP     DPL1
+00A8 D085              POP     DPH1
+00AA D082              POP     DPL
+00AC D083              POP     DPH
+00AE D0E0              POP     ACC
+00B0 32                RETI    
+             ; FUNCTION UART_RS485_RXISR (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    177    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

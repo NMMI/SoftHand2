@@ -1,0 +1,6 @@
+C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\firmware.cyprj|894f9426-8618-4c27-84c5-2f306f132e8e
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a6c3b2dd-618b-4c3e-8f51-ed38fb26e59d
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|5a098410-c54f-4e52-aef2-d13de2f663a4
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|77dad927-7093-4fd2-9e49-7a6291cbf8ba
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|86650d9b-2e9a-429c-93a6-ba707f7dbf61
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a5165d37-bcc5-4f9a-a7d7-606a33ab9ea1

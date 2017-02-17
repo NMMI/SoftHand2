@@ -1,0 +1,87 @@
+C51 COMPILER V9.51   GLOBALS                                                               02/07/2017 16:12:04 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE GLOBALS
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Release\globals.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -globals.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB DF(NDEBUG) WL(2) PR(.\DP8051_Keil_
+                    -951\Release/globals.lst) CD OT(8,SPEED) OJ(.\DP8051_Keil_951\Release\globals.obj)
+
+line level    source
+
+*** MESSAGE C286 IN LINE 0 OF (null): license limits optimization to level 5
+   1          // ----------------------------------------------------------------------------
+   2          // Copyright (C)  qbrobotics. All rights reserved.
+   3          // www.qbrobotics.com
+   4          // ----------------------------------------------------------------------------
+   5          
+   6          /**
+   7          * \file         globals.c
+   8          *
+   9          * \brief        Global variables.
+  10          * \date         Dic. 1, 2015
+  11          * \author       qbrobotics
+  12          * \copyright    (C)  qbrobotics. All rights reserved.
+  13          */
+  14          
+  15          //=================================================================     includes
+  16          
+  17          #include <globals.h>
+  18          
+  19          //=============================================      global variables definition
+  20          
+  21          struct st_ref   g_ref, g_refNew, g_refOld;  // motor variables
+  22          struct st_meas  g_meas, g_measOld;          // measurements
+  23          struct st_data  g_rx;                       // income data
+  24          struct st_mem   g_mem, c_mem;               // memory
+  25          struct st_calib calib;
+  26          
+  27          // Timer value for debug field
+  28          
+  29          uint32 timer_value;
+  30          uint32 timer_value0;
+  31          
+  32          // Device Data
+  33          
+  34          int32   dev_tension;                // Power supply tension
+  35          uint8   dev_pwm_limit;
+  36          
+  37          uint8 calibration_flag;
+  38          
+  39          // Bit Flag
+  40          
+  41          CYBIT reset_last_value_flag;
+  42          CYBIT tension_valid;
+  43          CYBIT interrupt_flag;
+  44          CYBIT watchdog_flag;
+  45          
+  46          // DMA Buffer
+  47          
+  48          int16 ADC_buf[3]; 
+  49          
+  50          // PWM Sign
+  51          
+  52          int8 pwm_sign[NUM_OF_MOTORS];
+C51 COMPILER V9.51   GLOBALS                                                               02/07/2017 16:12:04 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    626    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      4    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

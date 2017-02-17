@@ -1,0 +1,10 @@
+--------------- Build Started: 02/15/2017 14:52:31 Project: firmware, Configuration: DP8051 Keil 9.51 Release ---------------
+The code generation step is up to date.
+The compile step is up to date, no work needs to be done.
+Creating library C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\DP8051_Keil_951\Release\firmware.lib
+LX51.exe '.\DP8051_Keil_951\Release\firmware.lib', 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\DP8051\DP8051_Keil_951\Release\CyComponentLibrary.lib' TO '.\DP8051_Keil_951\Release\firmware.omf' CODE RU RC(10) DW(16) WL(2) PR(.\DP8051_Keil_951\Release/firmware.map) IX CL(XDATA(X:0x0000-X:0x1FFF)) CL(CODE(C:0x2600-C:0xFFBF)) CL(CONST(C:0x2600-C:0xFFBF))
+*** ERROR L210: I/O ERROR ON INPUT FILE:
+    EXCEPTION 0021H: PATH OR FILE NOT FOUND
+    FILE: .\DP8051_Keil_951\Release\firmware.lib
+The command 'LX51.exe' failed with exit code '3'.
+--------------- Build Failed: 02/15/2017 14:52:31 ---------------

@@ -1,0 +1,564 @@
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE UTILS
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\utils.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\utils.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB WL(2) PR(.\DP8051_Keil_951\Debug/u
+                    -tils.lst) CD OT(2,SIZE) OJ(.\DP8051_Keil_951\Debug\utils.obj)
+
+line level    source
+
+   1          // -----------------------------------------------------------------------------
+   2          // Copyright (C)  qbrobotics. All rights reserved.
+   3          // www.qbrobotics.com
+   4          // -----------------------------------------------------------------------------
+   5          
+   6          /**
+   7          * \file         utils.h
+   8          *
+   9          * \brief        Definition of utility functions.
+  10          * \date         Dic. 1, 2015
+  11          * \author       qbrobotics
+  12          * \copyright    (C)  qbrobotics. All rights reserved.
+  13          */
+  14          
+  15          #include <utils.h>
+  16          #include <math.h>
+  17          
+  18          //--------------------------------------------------------------     DEFINITIONS
+  19          
+  20          #define ALPHA 8     // current filters
+  21          #define BETA  300   // velocity filters
+  22          
+  23          //==============================================================================
+  24          //                                                               CURRENT FILTERS
+  25          //==============================================================================
+  26          
+  27          int32 filter_i1(int32 new_value) {
+  28   1      
+  29   1          static int32 old_value, aux;
+  30   1      
+  31   1          aux = (old_value * (1024 - ALPHA) + (new_value << 6) * (ALPHA)) >> 10;
+  32   1      
+  33   1          old_value = aux;
+  34   1      
+  35   1          return aux;
+  36   1      }
+  37          
+  38          int32 filter_i2(int32 new_value) {
+  39   1      
+  40   1          static int32 old_value, aux;
+  41   1      
+  42   1          aux = (old_value * (1024 - ALPHA) + (new_value << 6) * (ALPHA)) >> 10;
+  43   1      
+  44   1          old_value = aux;
+  45   1      
+  46   1          return aux;
+  47   1      }
+  48          
+  49          //==============================================================================
+  50          //                                                              VELOCITY FILTERS
+  51          //==============================================================================
+  52          
+  53          int32 filter_vel_1(int32 new_value) {
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 2   
+
+  54   1      
+  55   1          static int32 old_value, aux;
+  56   1      
+  57   1          aux = (old_value * (1024 - BETA) + (new_value << 6) * (BETA)) / 1024;
+  58   1      
+  59   1          old_value = aux;
+  60   1      
+  61   1          return (aux >> 6);
+  62   1      }
+  63          
+  64          int32 filter_vel_2(int32 new_value) {
+  65   1      
+  66   1          static int32 old_value, aux;
+  67   1      
+  68   1          aux = (old_value * (1024 - BETA) + (new_value << 6) * (BETA)) / 1024;
+  69   1      
+  70   1          old_value = aux;
+  71   1      
+  72   1          return (aux >> 6);
+  73   1      }
+  74          
+  75          int32 filter_vel_3(int32 new_value) {
+  76   1      
+  77   1          static int32 old_value, aux;
+  78   1      
+  79   1          aux = (old_value * (1024 - BETA) + (new_value << 6) * (BETA)) / 1024;
+  80   1      
+  81   1          old_value = aux;
+  82   1      
+  83   1          return (aux >> 6);
+  84   1      }
+  85          
+  86          
+  87          //==============================================================================
+  88          //                                                                CHECK ENC DATA
+  89          //==============================================================================
+  90          
+  91          // Returns 1 if the encoder data is correct, 0 otherwise
+  92          
+  93          CYBIT check_enc_data(const uint32 *value) {
+  94   1      
+  95   1          const uint8* CYIDATA p = (const uint8*)value;
+  96   1          uint8 CYDATA a = *p;
+  97   1      
+  98   1          a = a ^ *(++p);
+  99   1          a = a ^ *(++p);
+ 100   1          a = a ^ *(++p);
+ 101   1          a = (a & 0x0F) ^ (a>>4);
+ 102   1      
+ 103   1          return (0x9669 >> a) & 0x01;
+ 104   1          //0x9669 is a bit vector representing the !(bitwise XOR) of 4bits
+ 105   1      }
+ 106          
+ 107          
+ 108          //==============================================================================
+ 109          //                                                             CHECKSUM FUNCTION
+ 110          //==============================================================================
+ 111          
+ 112          // Performs a XOR byte by byte on the entire vector
+ 113          
+ 114          uint8 LCRChecksum(uint8 *data_array, uint8 data_length) {
+ 115   1          
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 3   
+
+ 116   1          uint8 CYDATA i;
+ 117   1          uint8 CYDATA checksum = 0x00;
+ 118   1          
+ 119   1          for(i = 0; i < data_length; ++i)
+ 120   1             checksum ^= data_array[i];
+ 121   1        
+ 122   1          return checksum;
+ 123   1      }
+ 124          
+ 125          /* [] END OF FILE */
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION _filter_i1 (BEGIN)
+                                           ; SOURCE LINE # 27
+0000 900000      R     MOV     DPTR,#new_value
+0003 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 31
+0006 900000      R     MOV     DPTR,#new_value
+0009 120000      E     LCALL   ?C?LLDXDATA
+000C 7806              MOV     R0,#06H
+000E 120000      E     LCALL   ?C?LSHL
+0011 7B08              MOV     R3,#08H
+0013 7A00              MOV     R2,#00H
+0015 7900              MOV     R1,#00H
+0017 7800              MOV     R0,#00H
+0019 120000      E     LCALL   ?C?LMUL
+001C C004              PUSH    AR4
+001E C005              PUSH    AR5
+0020 C006              PUSH    AR6
+0022 C007              PUSH    AR7
+0024 7FF8              MOV     R7,#0F8H
+0026 7E03              MOV     R6,#03H
+0028 7D00              MOV     R5,#00H
+002A 7C00              MOV     R4,#00H
+002C 900000      R     MOV     DPTR,#old_value
+002F 120000      E     LCALL   ?C?LLDXDATA0
+0032 120000      E     LCALL   ?C?LMUL
+0035 A804              MOV     R0,AR4
+0037 A905              MOV     R1,AR5
+0039 AA06              MOV     R2,AR6
+003B AB07              MOV     R3,AR7
+003D D007              POP     AR7
+003F D006              POP     AR6
+0041 D005              POP     AR5
+0043 D004              POP     AR4
+0045 120000      E     LCALL   ?C?LADD
+0048 780A              MOV     R0,#0AH
+004A 120000      E     LCALL   ?C?SLSHR
+004D 900000      R     MOV     DPTR,#aux
+0050 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 33
+0053 900000      R     MOV     DPTR,#aux
+0056 120000      E     LCALL   ?C?LLDXDATA
+0059 900000      R     MOV     DPTR,#old_value
+005C 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 35
+005F 900000      R     MOV     DPTR,#aux
+0062 120000      E     LCALL   ?C?LLDXDATA
+                                           ; SOURCE LINE # 36
+0065         ?C0001:
+0065 22                RET     
+             ; FUNCTION _filter_i1 (END)
+
+             ; FUNCTION _filter_i2 (BEGIN)
+                                           ; SOURCE LINE # 38
+0000 900000      R     MOV     DPTR,#new_value
+0003 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 42
+0006 900000      R     MOV     DPTR,#new_value
+0009 120000      E     LCALL   ?C?LLDXDATA
+000C 7806              MOV     R0,#06H
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 5   
+
+000E 120000      E     LCALL   ?C?LSHL
+0011 7B08              MOV     R3,#08H
+0013 7A00              MOV     R2,#00H
+0015 7900              MOV     R1,#00H
+0017 7800              MOV     R0,#00H
+0019 120000      E     LCALL   ?C?LMUL
+001C C004              PUSH    AR4
+001E C005              PUSH    AR5
+0020 C006              PUSH    AR6
+0022 C007              PUSH    AR7
+0024 7FF8              MOV     R7,#0F8H
+0026 7E03              MOV     R6,#03H
+0028 7D00              MOV     R5,#00H
+002A 7C00              MOV     R4,#00H
+002C 900000      R     MOV     DPTR,#old_value
+002F 120000      E     LCALL   ?C?LLDXDATA0
+0032 120000      E     LCALL   ?C?LMUL
+0035 A804              MOV     R0,AR4
+0037 A905              MOV     R1,AR5
+0039 AA06              MOV     R2,AR6
+003B AB07              MOV     R3,AR7
+003D D007              POP     AR7
+003F D006              POP     AR6
+0041 D005              POP     AR5
+0043 D004              POP     AR4
+0045 120000      E     LCALL   ?C?LADD
+0048 780A              MOV     R0,#0AH
+004A 120000      E     LCALL   ?C?SLSHR
+004D 900000      R     MOV     DPTR,#aux
+0050 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 44
+0053 900000      R     MOV     DPTR,#aux
+0056 120000      E     LCALL   ?C?LLDXDATA
+0059 900000      R     MOV     DPTR,#old_value
+005C 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 46
+005F 900000      R     MOV     DPTR,#aux
+0062 120000      E     LCALL   ?C?LLDXDATA
+                                           ; SOURCE LINE # 47
+0065         ?C0002:
+0065 22                RET     
+             ; FUNCTION _filter_i2 (END)
+
+             ; FUNCTION _filter_vel_1 (BEGIN)
+                                           ; SOURCE LINE # 53
+0000 900000      R     MOV     DPTR,#new_value
+0003 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 57
+0006 900000      R     MOV     DPTR,#new_value
+0009 120000      E     LCALL   ?C?LLDXDATA
+000C 7806              MOV     R0,#06H
+000E 120000      E     LCALL   ?C?LSHL
+0011 7B2C              MOV     R3,#02CH
+0013 7A01              MOV     R2,#01H
+0015 7900              MOV     R1,#00H
+0017 7800              MOV     R0,#00H
+0019 120000      E     LCALL   ?C?LMUL
+001C C004              PUSH    AR4
+001E C005              PUSH    AR5
+0020 C006              PUSH    AR6
+0022 C007              PUSH    AR7
+0024 7FD4              MOV     R7,#0D4H
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 6   
+
+0026 7E02              MOV     R6,#02H
+0028 7D00              MOV     R5,#00H
+002A 7C00              MOV     R4,#00H
+002C 900000      R     MOV     DPTR,#old_value
+002F 120000      E     LCALL   ?C?LLDXDATA0
+0032 120000      E     LCALL   ?C?LMUL
+0035 A804              MOV     R0,AR4
+0037 A905              MOV     R1,AR5
+0039 AA06              MOV     R2,AR6
+003B AB07              MOV     R3,AR7
+003D D007              POP     AR7
+003F D006              POP     AR6
+0041 D005              POP     AR5
+0043 D004              POP     AR4
+0045 120000      E     LCALL   ?C?LADD
+0048 7B00              MOV     R3,#00H
+004A 7A04              MOV     R2,#04H
+004C 7900              MOV     R1,#00H
+004E 7800              MOV     R0,#00H
+0050 120000      E     LCALL   ?C?SLDIV
+0053 900000      R     MOV     DPTR,#aux
+0056 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 59
+0059 900000      R     MOV     DPTR,#aux
+005C 120000      E     LCALL   ?C?LLDXDATA
+005F 900000      R     MOV     DPTR,#old_value
+0062 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 61
+0065 900000      R     MOV     DPTR,#aux
+0068 120000      E     LCALL   ?C?LLDXDATA
+006B 7806              MOV     R0,#06H
+006D 120000      E     LCALL   ?C?SLSHR
+                                           ; SOURCE LINE # 62
+0070         ?C0003:
+0070 22                RET     
+             ; FUNCTION _filter_vel_1 (END)
+
+             ; FUNCTION _filter_vel_2 (BEGIN)
+                                           ; SOURCE LINE # 64
+0000 900000      R     MOV     DPTR,#new_value
+0003 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 68
+0006 900000      R     MOV     DPTR,#new_value
+0009 120000      E     LCALL   ?C?LLDXDATA
+000C 7806              MOV     R0,#06H
+000E 120000      E     LCALL   ?C?LSHL
+0011 7B2C              MOV     R3,#02CH
+0013 7A01              MOV     R2,#01H
+0015 7900              MOV     R1,#00H
+0017 7800              MOV     R0,#00H
+0019 120000      E     LCALL   ?C?LMUL
+001C C004              PUSH    AR4
+001E C005              PUSH    AR5
+0020 C006              PUSH    AR6
+0022 C007              PUSH    AR7
+0024 7FD4              MOV     R7,#0D4H
+0026 7E02              MOV     R6,#02H
+0028 7D00              MOV     R5,#00H
+002A 7C00              MOV     R4,#00H
+002C 900000      R     MOV     DPTR,#old_value
+002F 120000      E     LCALL   ?C?LLDXDATA0
+0032 120000      E     LCALL   ?C?LMUL
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 7   
+
+0035 A804              MOV     R0,AR4
+0037 A905              MOV     R1,AR5
+0039 AA06              MOV     R2,AR6
+003B AB07              MOV     R3,AR7
+003D D007              POP     AR7
+003F D006              POP     AR6
+0041 D005              POP     AR5
+0043 D004              POP     AR4
+0045 120000      E     LCALL   ?C?LADD
+0048 7B00              MOV     R3,#00H
+004A 7A04              MOV     R2,#04H
+004C 7900              MOV     R1,#00H
+004E 7800              MOV     R0,#00H
+0050 120000      E     LCALL   ?C?SLDIV
+0053 900000      R     MOV     DPTR,#aux
+0056 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 70
+0059 900000      R     MOV     DPTR,#aux
+005C 120000      E     LCALL   ?C?LLDXDATA
+005F 900000      R     MOV     DPTR,#old_value
+0062 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 72
+0065 900000      R     MOV     DPTR,#aux
+0068 120000      E     LCALL   ?C?LLDXDATA
+006B 7806              MOV     R0,#06H
+006D 120000      E     LCALL   ?C?SLSHR
+                                           ; SOURCE LINE # 73
+0070         ?C0004:
+0070 22                RET     
+             ; FUNCTION _filter_vel_2 (END)
+
+             ; FUNCTION _filter_vel_3 (BEGIN)
+                                           ; SOURCE LINE # 75
+0000 900000      R     MOV     DPTR,#new_value
+0003 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 79
+0006 900000      R     MOV     DPTR,#new_value
+0009 120000      E     LCALL   ?C?LLDXDATA
+000C 7806              MOV     R0,#06H
+000E 120000      E     LCALL   ?C?LSHL
+0011 7B2C              MOV     R3,#02CH
+0013 7A01              MOV     R2,#01H
+0015 7900              MOV     R1,#00H
+0017 7800              MOV     R0,#00H
+0019 120000      E     LCALL   ?C?LMUL
+001C C004              PUSH    AR4
+001E C005              PUSH    AR5
+0020 C006              PUSH    AR6
+0022 C007              PUSH    AR7
+0024 7FD4              MOV     R7,#0D4H
+0026 7E02              MOV     R6,#02H
+0028 7D00              MOV     R5,#00H
+002A 7C00              MOV     R4,#00H
+002C 900000      R     MOV     DPTR,#old_value
+002F 120000      E     LCALL   ?C?LLDXDATA0
+0032 120000      E     LCALL   ?C?LMUL
+0035 A804              MOV     R0,AR4
+0037 A905              MOV     R1,AR5
+0039 AA06              MOV     R2,AR6
+003B AB07              MOV     R3,AR7
+003D D007              POP     AR7
+003F D006              POP     AR6
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 8   
+
+0041 D005              POP     AR5
+0043 D004              POP     AR4
+0045 120000      E     LCALL   ?C?LADD
+0048 7B00              MOV     R3,#00H
+004A 7A04              MOV     R2,#04H
+004C 7900              MOV     R1,#00H
+004E 7800              MOV     R0,#00H
+0050 120000      E     LCALL   ?C?SLDIV
+0053 900000      R     MOV     DPTR,#aux
+0056 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 81
+0059 900000      R     MOV     DPTR,#aux
+005C 120000      E     LCALL   ?C?LLDXDATA
+005F 900000      R     MOV     DPTR,#old_value
+0062 120000      E     LCALL   ?C?LSTXDATA
+                                           ; SOURCE LINE # 83
+0065 900000      R     MOV     DPTR,#aux
+0068 120000      E     LCALL   ?C?LLDXDATA
+006B 7806              MOV     R0,#06H
+006D 120000      E     LCALL   ?C?SLSHR
+                                           ; SOURCE LINE # 84
+0070         ?C0005:
+0070 22                RET     
+             ; FUNCTION _filter_vel_3 (END)
+
+             ; FUNCTION _check_enc_data (BEGIN)
+                                           ; SOURCE LINE # 93
+0000 900000      R     MOV     DPTR,#value
+0003 120000      E     LCALL   ?C?PSTXDATA
+                                           ; SOURCE LINE # 95
+0006 900000      R     MOV     DPTR,#value
+0009 120000      E     LCALL   ?C?PLDXDATA
+000C 7800        R     MOV     R0,#LOW p
+000E 120000      E     LCALL   ?C?PSTIDATA
+                                           ; SOURCE LINE # 96
+0011 7800        R     MOV     R0,#LOW p
+0013 120000      E     LCALL   ?C?PLDIDATA
+0016 120000      E     LCALL   ?C?CLDPTR
+0019 FF                MOV     R7,A
+001A 8F00        R     MOV     a,R7
+                                           ; SOURCE LINE # 98
+001C 7800        R     MOV     R0,#LOW p
+001E E4                CLR     A
+001F 75F001            MOV     B,#01H
+0022 120000      E     LCALL   ?C?PILDIDATA
+0025 120000      E     LCALL   ?C?CLDPTR
+0028 FF                MOV     R7,A
+0029 EF                MOV     A,R7
+002A 6200        R     XRL     a,A
+                                           ; SOURCE LINE # 99
+002C 7800        R     MOV     R0,#LOW p
+002E E4                CLR     A
+002F 75F001            MOV     B,#01H
+0032 120000      E     LCALL   ?C?PILDIDATA
+0035 120000      E     LCALL   ?C?CLDPTR
+0038 FF                MOV     R7,A
+0039 EF                MOV     A,R7
+003A 6200        R     XRL     a,A
+                                           ; SOURCE LINE # 100
+003C 7800        R     MOV     R0,#LOW p
+003E E4                CLR     A
+003F 75F001            MOV     B,#01H
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 9   
+
+0042 120000      E     LCALL   ?C?PILDIDATA
+0045 120000      E     LCALL   ?C?CLDPTR
+0048 FF                MOV     R7,A
+0049 EF                MOV     A,R7
+004A 6200        R     XRL     a,A
+                                           ; SOURCE LINE # 101
+004C E500        R     MOV     A,a
+004E C4                SWAP    A
+004F 540F              ANL     A,#0FH
+0051 FF                MOV     R7,A
+0052 E500        R     MOV     A,a
+0054 540F              ANL     A,#0FH
+0056 FE                MOV     R6,A
+0057 EF                MOV     A,R7
+0058 6E                XRL     A,R6
+0059 F500        R     MOV     a,A
+                                           ; SOURCE LINE # 103
+005B AF00        R     MOV     R7,a
+005D 7469              MOV     A,#069H
+005F 7E96              MOV     R6,#096H
+0061 A807              MOV     R0,AR7
+0063 08                INC     R0
+0064 8005              SJMP    ?C0012
+0066         ?C0011:
+0066 CE                XCH     A,R6
+0067 C3                CLR     C
+0068 13                RRC     A
+0069 CE                XCH     A,R6
+006A 13                RRC     A
+006B         ?C0012:
+006B D8F9              DJNZ    R0,?C0011
+006D FF                MOV     R7,A
+006E EF                MOV     A,R7
+006F 13                RRC     A
+                                           ; SOURCE LINE # 105
+0070         ?C0006:
+0070 22                RET     
+             ; FUNCTION _check_enc_data (END)
+
+             ; FUNCTION _LCRChecksum (BEGIN)
+                                           ; SOURCE LINE # 114
+0000 900000      R     MOV     DPTR,#data_array
+0003 120000      E     LCALL   ?C?PSTXDATA
+0006 900000      R     MOV     DPTR,#data_length
+0009 ED                MOV     A,R5
+000A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 117
+000B 750000      R     MOV     checksum,#00H
+                                           ; SOURCE LINE # 119
+000E 750000      R     MOV     i,#00H
+0011         ?C0007:
+0011 900000      R     MOV     DPTR,#data_length
+0014 E0                MOVX    A,@DPTR
+0015 FF                MOV     R7,A
+0016 E500        R     MOV     A,i
+0018 C3                CLR     C
+0019 9F                SUBB    A,R7
+001A 5019              JNC     ?C0008
+                                           ; SOURCE LINE # 120
+001C 900000      R     MOV     DPTR,#data_array
+001F 120000      E     LCALL   ?C?PLDXDATA
+0022 AF00        R     MOV     R7,i
+C51 COMPILER V9.51   UTILS                                                                 05/18/2016 12:33:09 PAGE 10  
+
+0024 E9                MOV     A,R1
+0025 2F                ADD     A,R7
+0026 F9                MOV     R1,A
+0027 E4                CLR     A
+0028 3A                ADDC    A,R2
+0029 FA                MOV     R2,A
+002A 120000      E     LCALL   ?C?CLDPTR
+002D FF                MOV     R7,A
+002E EF                MOV     A,R7
+002F 6200        R     XRL     checksum,A
+0031 0500        R     INC     i
+0033 80DC              SJMP    ?C0007
+0035         ?C0008:
+                                           ; SOURCE LINE # 122
+0035 AF00        R     MOV     R7,checksum
+                                           ; SOURCE LINE # 123
+0037         ?C0010:
+0037 22                RET     
+             ; FUNCTION _LCRChecksum (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    712    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     40      27
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----       3
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,146 @@
+C51 COMPILER V9.51   ADC_SOC_1_PM                                                          11/18/2015 10:42:20 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE ADC_SOC_1_PM
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Release\ADC_SOC_1_PM.obj
+COMPILER INVOKED BY: C:\Program Files\Cypress\PSoC Creator\3.3\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe .\Gene
+                    -rated_Source\PSoC3\ADC_SOC_1_PM.c NOIV LARGE MODDP2 OMF2 VB(1) NOIP INCDIR(.,Generated_Source\PSoC3) FF(3) DB DF(NDEBUG)
+                    - WL(2) PR(.\DP8051_Keil_951\Release/ADC_SOC_1_PM.lst) CD OT(8,SPEED) OJ(.\DP8051_Keil_951\Release\ADC_SOC_1_PM.obj)
+
+line level    source
+
+*** MESSAGE C286 IN LINE 0 OF (null): license limits optimization to level 5
+   1          /*******************************************************************************
+   2          * File Name: ADC_SOC_1_PM.c
+   3          * Version 1.80
+   4          *
+   5          * Description:
+   6          *  This file contains the setup, control, and status commands to support 
+   7          *  the component operation in the low power mode. 
+   8          *
+   9          * Note:
+  10          *
+  11          ********************************************************************************
+  12          * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13          * You may use this file only in accordance with the license, terms, conditions, 
+  14          * disclaimers, and limitations in the end user license agreement accompanying 
+  15          * the software package with which this file was provided.
+  16          *******************************************************************************/
+  17          
+  18          #include "ADC_SOC_1.h"
+  19          
+  20          /* Check for removal by optimization */
+  21          #if !defined(ADC_SOC_1_Sync_ctrl_reg__REMOVED)
+              
+              static ADC_SOC_1_BACKUP_STRUCT  ADC_SOC_1_backup = {0u};
+              
+                  
+              /*******************************************************************************
+              * Function Name: ADC_SOC_1_SaveConfig
+              ********************************************************************************
+              *
+              * Summary:
+              *  Saves the control register value.
+              *
+              * Parameters:
+              *  None
+              *
+              * Return:
+              *  None
+              *
+              *******************************************************************************/
+              void ADC_SOC_1_SaveConfig(void) 
+              {
+                  ADC_SOC_1_backup.controlState = ADC_SOC_1_Control;
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: ADC_SOC_1_RestoreConfig
+              ********************************************************************************
+              *
+              * Summary:
+              *  Restores the control register value.
+              *
+C51 COMPILER V9.51   ADC_SOC_1_PM                                                          11/18/2015 10:42:20 PAGE 2   
+
+              * Parameters:
+              *  None
+              *
+              * Return:
+              *  None
+              *
+              *
+              *******************************************************************************/
+              void ADC_SOC_1_RestoreConfig(void) 
+              {
+                   ADC_SOC_1_Control = ADC_SOC_1_backup.controlState;
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: ADC_SOC_1_Sleep
+              ********************************************************************************
+              *
+              * Summary:
+              *  Prepares the component for entering the low power mode.
+              *
+              * Parameters:
+              *  None
+              *
+              * Return:
+              *  None
+              *
+              *******************************************************************************/
+              void ADC_SOC_1_Sleep(void) 
+              {
+                  ADC_SOC_1_SaveConfig();
+              }
+              
+              
+              /*******************************************************************************
+              * Function Name: ADC_SOC_1_Wakeup
+              ********************************************************************************
+              *
+              * Summary:
+              *  Restores the component after waking up from the low power mode.
+              *
+              * Parameters:
+              *  None
+              *
+              * Return:
+              *  None
+              *
+              *******************************************************************************/
+              void ADC_SOC_1_Wakeup(void)  
+              {
+                  ADC_SOC_1_RestoreConfig();
+              }
+              
+              #endif /* End check for removal by optimization */
+ 107          
+ 108          
+ 109          /* [] END OF FILE */
+C51 COMPILER V9.51   ADC_SOC_1_PM                                                          11/18/2015 10:42:20 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

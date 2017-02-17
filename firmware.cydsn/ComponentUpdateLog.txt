@@ -1,0 +1,43 @@
+Last Modified Date & Time: 11/24/2015 09:25:21
+
+firmware: TopDesign.cysch
+	Bootloadable [v1.40] to [v1.40]
+
+firmware: firmware.cydwr
+	cy_boot [v5.0] to [v5.20]
+
+
+Last Modified Date & Time: 09/09/2016 16:48:32
+
+firmware: TopDesign.cysch
+	MOTOR_1A [v2.20] to [v2.20]
+	MOTOR_EN [v2.20] to [v2.20]
+	MOTOR_2A [v2.20] to [v2.20]
+	RS485_RX [v2.20] to [v2.20]
+	RS485_TX [v2.20] to [v2.20]
+	RS_485_EN [v2.20] to [v2.20]
+	Signal_1_C [v2.20] to [v2.20]
+	VOLTAGE_SENSE [v2.20] to [v2.20]
+	CURRENT_SENSE_1 [v2.20] to [v2.20]
+	MOTOR_1B [v2.20] to [v2.20]
+	MOTOR_2B [v2.20] to [v2.20]
+	Signal_2_C [v2.20] to [v2.20]
+	USB_VDD [v2.20] to [v2.20]
+	FTDI_ENABLE [v2.20] to [v2.20]
+	CURRENT_SENSE_2 [v2.20] to [v2.20]
+	LED [v2.20] to [v2.20]
+	Signal_1_B [v2.20] to [v2.20]
+	Signal_2_B [v2.20] to [v2.20]
+	Signal_1_A [v2.20] to [v2.20]
+	Signal_2_A [v2.20] to [v2.20]
+	EMG_1 [v2.20] to [v2.20]
+	EMG_2 [v2.20] to [v2.20]
+	UP_DOWN [v2.20] to [v2.20]
+	LEFT_RIGHT [v2.20] to [v2.20]
+	Bootloadable [v1.50] to [v1.50]
+
+firmware: firmware.cydwr
+	cy_boot [v5.20] to [v5.40]
+	LIN_Dynamic [v3.20] to [v3.40]
+
+
