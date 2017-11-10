@@ -1,0 +1,99 @@
+\section{utils.\+h File Reference}
+\label{utils_8h}\index{utils.\+h@{utils.\+h}}
+
+
+Definition of utility functions.  
+
+
+{\ttfamily \#include $<$globals.\+h$>$}\newline
+Include dependency graph for utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{utils_8h_af5abd28c44c29b7397c84f1fec4b1d84}} 
+\#define \textbf{ A\+L\+P\+HA}~3
+\begin{DoxyCompactList}\small\item\em Voltage and current filters constants. \end{DoxyCompactList}\item 
+\mbox{\label{utils_8h_a1b996515309fc3c03449912bb33046e3}} 
+\#define \textbf{ B\+E\+TA}~50
+\begin{DoxyCompactList}\small\item\em Emg filters constant. \end{DoxyCompactList}\item 
+\mbox{\label{utils_8h_a8659b9de3e544ff142b153b076f30fd5}} 
+\#define \textbf{ G\+A\+M\+MA}~32
+\begin{DoxyCompactList}\small\item\em Velocity filters constant. \end{DoxyCompactList}\item 
+\mbox{\label{utils_8h_a3fd2b1bcd7ddcf506237987ad780f495}} 
+\#define \textbf{ D\+E\+L\+TA}~32
+\begin{DoxyCompactList}\small\item\em Acceleration filters constant. \end{DoxyCompactList}\item 
+\mbox{\label{utils_8h_a8c7db0cde6d591a5abad279ba92ef021}} 
+\#define {\bfseries S\+I\+GN}(A)~(((A) $>$= 0) ? (1) \+: (-\/1))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{utils_8h_a3588bc1aa14c6ea245387dda7eb7ffbe}} 
+int32 {\bfseries filter\+\_\+i1} (int32 value)
+\item 
+\mbox{\label{utils_8h_ac9c746215432427ee4e8d7dbb84b1c1a}} 
+int32 {\bfseries filter\+\_\+i2} (int32 value)
+\item 
+\mbox{\label{utils_8h_ad378840ee71c2d41d2d4f1a84465c7f3}} 
+int32 {\bfseries filter\+\_\+vel\+\_\+1} (int32 value)
+\item 
+\mbox{\label{utils_8h_abda54d76e676bb1cb27b5577bd0fe099}} 
+int32 {\bfseries filter\+\_\+vel\+\_\+2} (int32 value)
+\item 
+\mbox{\label{utils_8h_a70430ee90ed28e4c9fca0c4ca3d6583e}} 
+int32 {\bfseries filter\+\_\+vel\+\_\+3} (int32 value)
+\item 
+\mbox{\label{utils_8h_ae143e439a41178d1cf10da4920488f86}} 
+int32 {\bfseries filter\+\_\+ch1} (int32 value)
+\item 
+\mbox{\label{utils_8h_a45f7702bcbea56e0d255f6a615e6b8ae}} 
+int32 {\bfseries filter\+\_\+ch2} (int32 value)
+\item 
+\mbox{\label{utils_8h_ae9ef936ba30a0a1b2cf52b8fb7f07656}} 
+uint8 {\bfseries L\+C\+R\+Checksum} (uint8 $\ast$data\+\_\+array, const uint8 data\+\_\+length)
+\item 
+\mbox{\label{utils_8h_a8f6aff189d5fbbb0be1fdd13e0e720c0}} 
+C\+Y\+B\+IT {\bfseries check\+\_\+enc\+\_\+data} (const uint32 $\ast$)
+\item 
+\mbox{\label{utils_8h_a01d3bb6c1fd469a6c530fb296e4fe0fe}} 
+uint32 {\bfseries my\+\_\+mod} (int32 val, int32 divisor)
+\item 
+\mbox{\label{utils_8h_afa68f255d25478e463690f63d529c29d}} 
+int {\bfseries calc\+\_\+turns\+\_\+fcn} (const int32 pos1, const int32 pos2)
+\item 
+\mbox{\label{utils_8h_a6d9dc88d64cd1f74a30fd0e404a3bb31}} 
+void {\bfseries calibration} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition of utility functions. 
+
+Declaration of utility functions.
+
+\begin{DoxyDate}{Date}
+October 01, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+{\itshape Centro \char`\"{}\+E.\+Piaggio\char`\"{}} 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+(C) 2012-\/2016 qbrobotics. All rights reserved. 
+
+(C) 2017 Centro \char`\"{}\+E.\+Piaggio\char`\"{}. All rights reserved. 
+\end{DoxyCopyright}

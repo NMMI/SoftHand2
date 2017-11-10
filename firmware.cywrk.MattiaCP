@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\utils.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\commands.h">
 <ExpandedNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
@@ -295,6 +295,15 @@
 <v>firmware\firmware</v>
 <v>firmware\firmware\TopDesign</v>
 <v>firmware\firmware\firmware.cydwr</v>
+<v>firmware\firmware\firmware.cydwr\Pins</v>
+<v>firmware\firmware\firmware.cydwr\Analog</v>
+<v>firmware\firmware\firmware.cydwr\Clocks</v>
+<v>firmware\firmware\firmware.cydwr\Interrupts</v>
+<v>firmware\firmware\firmware.cydwr\DMA</v>
+<v>firmware\firmware\firmware.cydwr\System</v>
+<v>firmware\firmware\firmware.cydwr\Directives</v>
+<v>firmware\firmware\firmware.cydwr\Flash Security</v>
+<v>firmware\firmware\firmware.cydwr\EEPROM</v>
 <v>firmware\firmware\Header Files</v>
 <v>firmware\firmware\Header Files\command_processing.h</v>
 <v>firmware\firmware\Header Files\commands.h</v>
@@ -331,14 +340,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_STATUS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_STATUS\ADC_STATUS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_STATUS\ADC_STATUS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -364,11 +365,200 @@
 <v>firmware\firmware\DP8051</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_AMux.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_INT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_SOC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_SOC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_STATUS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Bootloadable.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CLOCK_ENCODERS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CLOCK_PWM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CLOCK_UART.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\command_processing.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\COUNTER_ENC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\COUNTER_ENC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CURRENT_SENSE_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CURRENT_SENSE_2.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyBootAsmKeil.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyDmac.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyFlash.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyLib.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cymem.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cyPm.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CySpc.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cyutils.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\DMA_dma.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\EEPROM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FF_STATUS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FTDI_ENABLE.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FTDI_ENABLE_REG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FTDI_ENABLE_REG_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\globals.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\interruptions.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ISR_RS485_RX.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ISR_WATCHDOG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\KeilStart.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\main.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_1A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_1B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_2A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_2B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_DIR.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_DIR_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_EN.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_ON_OFF.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_ON_OFF_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MY_TIMER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MY_TIMER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\PACER_TIMER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\PACER_TIMER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\PWM_MOTORS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\PWM_MOTORS_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\RESET_FF.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\RESET_FF_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\RS_485_EN.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\RS485_CTS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\RS485_CTS_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_1_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_2.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_2_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_3.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_3_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_4.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\SHIFTREG_ENC_4_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Signal_1_A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Signal_1_B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Signal_1_C.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Signal_2_A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Signal_2_B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Signal_2_C.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\timer_clock.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\UART_RS485.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\UART_RS485_BOOT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\UART_RS485_INT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\UART_RS485_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\USB_VDD.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\utils.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\VOLTAGE_SENSE.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_CLK.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_COUNTER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_COUNTER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_ENABLER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_ENABLER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_REFRESH.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\WATCHDOG_REFRESH_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\firmware.cyacd</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\firmware.elf</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\firmware.hex</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\firmware.map</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_AMux.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_INT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_IRQ.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_SOC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_SOC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_STATUS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_theACLK.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Bootloadable.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_ENCODERS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_PWM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_UART.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\command_processing.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\COUNTER_ENC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\COUNTER_ENC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CURRENT_SENSE_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CURRENT_SENSE_2.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyBootAsmKeil.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyDmac.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyfitter_cfg.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyFlash.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyLib.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cymem.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyPm.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CySpc.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyutils.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\DMA_dma.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EEPROM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_2.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FF_STATUS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE_REG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE_REG_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\globals.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\interruptions.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_RS485_RX.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_WATCHDOG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\KeilStart.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED_REG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED_REG_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LEFT_RIGHT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\main.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_1A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_1B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_2A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_2B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_DIR.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_DIR_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_EN.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_ON_OFF.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_ON_OFF_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MY_TIMER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MY_TIMER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\PACER_TIMER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\PACER_TIMER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\PWM_MOTORS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\PWM_MOTORS_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RESET_COUNTERS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RESET_COUNTERS_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RESET_FF.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RESET_FF_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RS_485_EN.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RS485_CTS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\RS485_CTS_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_1_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_2.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_2_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_3.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_3_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_4.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_4_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_1_A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_1_B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_1_C.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_2_A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_2_B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_2_C.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\timer_clock.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485_BOOT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485_INT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UP_DOWN.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\USB_VDD.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\utils.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\VOLTAGE_SENSE.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_CLK.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_COUNTER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_COUNTER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_ENABLER.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_ENABLER_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_REFRESH.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\WATCHDOG_REFRESH_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.cyacd</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.elf</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.hex</v>
@@ -380,8 +570,53 @@
 <VisibleNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
-<v>firmware\firmware\firmware.rpt</v>
-<v>firmware\firmware\firmware_timing.html</v>
+<v>firmware\firmware\DP8051</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_AMux.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_INT.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_SOC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_SOC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_STATUS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\Bootloadable.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CLOCK_ENCODERS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CLOCK_PWM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CLOCK_UART.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\command_processing.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\COUNTER_ENC.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\COUNTER_ENC_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CURRENT_SENSE_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CURRENT_SENSE_2.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyBootAsmKeil.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyDmac.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyFlash.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CyLib.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cymem.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cyPm.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\CySpc.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\cyutils.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\DMA_dma.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\EEPROM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FF_STATUS.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FTDI_ENABLE.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FTDI_ENABLE_REG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\FTDI_ENABLE_REG_PM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\globals.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\interruptions.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ISR_RS485_RX.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\ISR_WATCHDOG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\KeilStart.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\main.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_1A.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_1B.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_2A.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -501,7 +736,16 @@
 <name v=".\firmware.cydsn\main.c" />
 <name v=".\firmware.cydsn\utils.c" />
 <name v=".\firmware.cydsn\utils.h" />
+<name v=".\firmware.cydsn\command_processing.c" />
+<name v=".\firmware.cydsn\commands.h" />
 </OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1465, 829" SelectedTabbedMdiWindow="185798d9-8740-4392-81f9-711a06bddf95"><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\firmware.cydwr" Guid="185798d9-8740-4392-81f9-711a06bddf95" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\TopDesign\TopDesign.cysch" Guid="27bec1e9-1cbf-4637-9e57-a1cc61a6d26b" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\interruptions.c" Guid="a565b276-d995-464e-8680-ff98882ece0b" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\globals.h" Guid="4db74f23-0050-49ee-8675-2245b2d36c69" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\main.c" Guid="c82b6f05-009e-4b12-af80-895d9f831677" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\utils.c" Guid="bb17c25b-7d81-4891-9250-01ad723d1950" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\utils.h" Guid="a65c6c73-d2a1-46cc-8b9f-e41188f94194" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\command_processing.c" Guid="bcd0e557-cad3-445e-a7a3-2a695cce0f8c" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\commands.h" Guid="a4f617b1-ed75-4ea9-ab22-31c20225781d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Release" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

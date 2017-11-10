@@ -1,0 +1,153 @@
+\section{command\+\_\+processing.\+h File Reference}
+\label{command__processing_8h}\index{command\+\_\+processing.\+h@{command\+\_\+processing.\+h}}
+
+
+Command processing functions.  
+
+
+{\ttfamily \#include $<$globals.\+h$>$}\newline
+Include dependency graph for command\+\_\+processing.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command__processing_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command__processing_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{command__processing_8h_abb781ac00e0752ce772a75f7b5d1a5b7}} 
+void {\bfseries set\+Zeros} (void)
+\item 
+\mbox{\label{command__processing_8h_a5ef086c932682ca5f7549b74ead732aa}} 
+void {\bfseries get\+\_\+param\+\_\+list} (uint16 index)
+\item 
+\mbox{\label{command__processing_8h_a6fda7bc0be24d261f9cb09e77616b1be}} 
+void {\bfseries info\+Prepare} (unsigned char $\ast$)
+\item 
+\mbox{\label{command__processing_8h_a813734e69ea461791f84bddee422013f}} 
+void {\bfseries info\+Get} (uint16)
+\item 
+\mbox{\label{command__processing_8h_a2e5d1711e19837adc3e8f479af3ae509}} 
+void {\bfseries comm\+Process} ()
+\item 
+\mbox{\label{command__processing_8h_adeaad7a3965fdcfe78aa89533f1ebf39}} 
+void {\bfseries comm\+Write} (uint8 $\ast$, const uint16)
+\item 
+\mbox{\label{command__processing_8h_af454a3663070706183ebf8f1ba784343}} 
+void {\bfseries comm\+Write\+\_\+old\+\_\+id} (uint8 $\ast$, const uint16, uint8)
+\item 
+uint8 \textbf{ mem\+Store} (int)
+\item 
+\mbox{\label{command__processing_8h_afe5c87f9df9bb965976b5d40c4159f1f}} 
+void {\bfseries send\+Acknowledgment} (const uint8)
+\item 
+void \textbf{ mem\+Recall} (void)
+\item 
+uint8 \textbf{ mem\+Restore} (void)
+\item 
+uint8 \textbf{ mem\+Init} (void)
+\item 
+void \textbf{ cmd\+\_\+get\+\_\+measurements} ()
+\item 
+\mbox{\label{command__processing_8h_a20db4694e8caa572ec479f73ce8b3b02}} 
+void {\bfseries cmd\+\_\+get\+\_\+inputs} ()
+\item 
+\mbox{\label{command__processing_8h_aaf613e251c1e14fe4fffe3e9e033f9f7}} 
+void {\bfseries cmd\+\_\+get\+\_\+currents} ()
+\item 
+\mbox{\label{command__processing_8h_a45a90a8455bfdb6a7f0e118da2c6f0a6}} 
+void {\bfseries cmd\+\_\+get\+\_\+curr\+\_\+and\+\_\+meas} ()
+\item 
+\mbox{\label{command__processing_8h_a2d8a4542f55af960a27f875b00aad6a1}} 
+void {\bfseries cmd\+\_\+set\+\_\+inputs} ()
+\item 
+\mbox{\label{command__processing_8h_a7897817859ac33d5a20b710af0f6a044}} 
+void {\bfseries cmd\+\_\+set\+\_\+pos\+\_\+stiff} ()
+\item 
+\mbox{\label{command__processing_8h_a212883283bd7a8f32846615271cad8ce}} 
+void {\bfseries cmd\+\_\+get\+\_\+velocities} ()
+\item 
+\mbox{\label{command__processing_8h_a09b189bd1592a8f95769a1907f44b555}} 
+void {\bfseries cmd\+\_\+get\+\_\+joystick} ()
+\item 
+\mbox{\label{command__processing_8h_ae579c6ac56fef33632f9c9f2c42b90a0}} 
+void {\bfseries cmd\+\_\+get\+\_\+emg} ()
+\item 
+\mbox{\label{command__processing_8h_a107fc9f2982f9a953bdd82aa07279499}} 
+void {\bfseries cmd\+\_\+activate} ()
+\item 
+\mbox{\label{command__processing_8h_aa94cd9c2e2fbfc5b98e84f67569cfe82}} 
+void {\bfseries cmd\+\_\+set\+\_\+watchdog} ()
+\item 
+\mbox{\label{command__processing_8h_a554d563001517bfbc44400a1e999b393}} 
+void {\bfseries cmd\+\_\+get\+\_\+activate} ()
+\item 
+\mbox{\label{command__processing_8h_a704f8c8cb0f4d75f243fc2b79bc34188}} 
+void {\bfseries cmd\+\_\+ping} ()
+\item 
+\mbox{\label{command__processing_8h_a1a2493bfc2f30171d7e7a3bd5aebab14}} 
+void {\bfseries cmd\+\_\+store\+\_\+params} ()
+\item 
+\mbox{\label{command__processing_8h_aa86bf1f2fa69ab5927f7e4e40eb40581}} 
+void {\bfseries cmd\+\_\+set\+\_\+baudrate} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Command processing functions. 
+
+\begin{DoxyDate}{Date}
+October 01, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+{\itshape Centro \char`\"{}\+E.\+Piaggio\char`\"{}} 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+(C) 2012-\/2016 qbrobotics. All rights reserved. 
+
+(C) 2017 Centro \char`\"{}\+E.\+Piaggio\char`\"{}. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\label{command__processing_8h_af5ccd403f1d3e49c97bafd6e7713cff3}} 
+\index{command\+\_\+processing.\+h@{command\+\_\+processing.\+h}!cmd\+\_\+get\+\_\+measurements@{cmd\+\_\+get\+\_\+measurements}}
+\index{cmd\+\_\+get\+\_\+measurements@{cmd\+\_\+get\+\_\+measurements}!command\+\_\+processing.\+h@{command\+\_\+processing.\+h}}
+\subsubsection{cmd\+\_\+get\+\_\+measurements()}
+{\footnotesize\ttfamily void cmd\+\_\+get\+\_\+measurements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Bunch of functions used on request from U\+A\+RT communication \mbox{\label{command__processing_8h_a48f1d2aa212e255d0a3322e576fc8574}} 
+\index{command\+\_\+processing.\+h@{command\+\_\+processing.\+h}!mem\+Init@{mem\+Init}}
+\index{mem\+Init@{mem\+Init}!command\+\_\+processing.\+h@{command\+\_\+processing.\+h}}
+\subsubsection{mem\+Init()}
+{\footnotesize\ttfamily uint8 mem\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function initialize memory when eeprom is compromised. \mbox{\label{command__processing_8h_a494f1f72ae370f0057e5aa3db73ef6fb}} 
+\index{command\+\_\+processing.\+h@{command\+\_\+processing.\+h}!mem\+Recall@{mem\+Recall}}
+\index{mem\+Recall@{mem\+Recall}!command\+\_\+processing.\+h@{command\+\_\+processing.\+h}}
+\subsubsection{mem\+Recall()}
+{\footnotesize\ttfamily void mem\+Recall (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function loads user settings from the eeprom. \mbox{\label{command__processing_8h_af67845c368ea7fefb79a1f0baa12134c}} 
+\index{command\+\_\+processing.\+h@{command\+\_\+processing.\+h}!mem\+Restore@{mem\+Restore}}
+\index{mem\+Restore@{mem\+Restore}!command\+\_\+processing.\+h@{command\+\_\+processing.\+h}}
+\subsubsection{mem\+Restore()}
+{\footnotesize\ttfamily uint8 mem\+Restore (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function loads default settings from the eeprom. \mbox{\label{command__processing_8h_ad37da1fb5c1ccf35a9a53595b8bab54c}} 
+\index{command\+\_\+processing.\+h@{command\+\_\+processing.\+h}!mem\+Store@{mem\+Store}}
+\index{mem\+Store@{mem\+Store}!command\+\_\+processing.\+h@{command\+\_\+processing.\+h}}
+\subsubsection{mem\+Store()}
+{\footnotesize\ttfamily uint8 mem\+Store (\begin{DoxyParamCaption}\item[{int}]{displacement }\end{DoxyParamCaption})}
+
+This function stores current memory settings on the eeprom with the specified displacement 

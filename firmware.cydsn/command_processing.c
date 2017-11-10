@@ -38,8 +38,8 @@
 *
 
 * \brief        Command processing functions.
-* \date         Dic. 1, 2015
-* \author       qbrobotics
+* \date         October 01, 2017
+* \author       _Centro "E.Piaggio"_
 * \copyright    (C) 2012-2016 qbrobotics. All rights reserved.
 * \copyright    (C) 2017 Centro "E.Piaggio". All rights reserved.
 */

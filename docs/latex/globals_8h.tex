@@ -1,0 +1,350 @@
+\section{globals.\+h File Reference}
+\label{globals_8h}\index{globals.\+h@{globals.\+h}}
+
+
+Global definitions and macros are set in this file.  
+
+
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commands.\+h\char`\"{}}\newline
+Include dependency graph for globals.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{globals_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{globals_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ st\+\_\+ref}
+\item 
+struct \textbf{ st\+\_\+meas}
+\item 
+struct \textbf{ st\+\_\+data}
+\item 
+struct \textbf{ st\+\_\+calib}
+\begin{DoxyCompactList}\small\item\em Hand calibration structure. \end{DoxyCompactList}\item 
+struct \textbf{ st\+\_\+mem}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{globals_8h_a1c6d5de492ac61ad29aec7aa9a436bbf}} 
+\#define {\bfseries V\+E\+R\+S\+I\+ON}~\char`\"{}T\+WO M\+O\+T\+O\+RS H\+A\+ND v6.\+1.\+0\char`\"{}
+\item 
+\mbox{\label{globals_8h_a39ac50737c1ee7d5b723b2597fdf6f26}} 
+\#define {\bfseries N\+U\+M\+\_\+\+O\+F\+\_\+\+M\+O\+T\+O\+RS}~2
+\item 
+\mbox{\label{globals_8h_af48a6b6fcdc5f5019fb108d03b07a727}} 
+\#define {\bfseries N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+E\+N\+S\+O\+RS}~4
+\item 
+\mbox{\label{globals_8h_a8e55cba7b8d4f9aa1eb36f311ce121e5}} 
+\#define {\bfseries N\+U\+M\+\_\+\+O\+F\+\_\+\+E\+M\+GS}~2
+\item 
+\mbox{\label{globals_8h_a181be7cbd0b2da8e8bb809e6313bd67f}} 
+\#define {\bfseries N\+U\+M\+\_\+\+O\+F\+\_\+\+A\+N\+A\+L\+O\+G\+\_\+\+I\+N\+P\+U\+TS}~7
+\item 
+\mbox{\label{globals_8h_aab4f4a0ece20c4bc27152bd72926d89c}} 
+\#define {\bfseries N\+U\+M\+\_\+\+O\+F\+\_\+\+P\+A\+R\+A\+MS}~24
+\item 
+\#define \textbf{ P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}~100
+\item 
+\mbox{\label{globals_8h_ada72214f9e15f255cad72a749211b3df}} 
+\#define {\bfseries P\+W\+M\+\_\+\+D\+E\+AD}~0
+\item 
+\mbox{\label{globals_8h_a80db2dce057c92400a7fb1678bc0b0a8}} 
+\#define {\bfseries C\+A\+L\+I\+B\+R\+A\+T\+I\+O\+N\+\_\+\+D\+IV}~100
+\item 
+\mbox{\label{globals_8h_a14df76a41da04070ee775565e8d67e81}} 
+\#define {\bfseries D\+I\+V\+\_\+\+I\+N\+I\+T\+\_\+\+V\+A\+L\+UE}~1
+\item 
+\mbox{\label{globals_8h_abf6c9afec04b86961e177e0646401ace}} 
+\#define {\bfseries D\+M\+A\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+U\+R\+ST}~2
+\item 
+\mbox{\label{globals_8h_ab4613f8bee68bc68fa6fe94a3ae6d568}} 
+\#define {\bfseries D\+M\+A\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+P\+E\+R\+\_\+\+B\+U\+R\+ST}~1
+\item 
+\mbox{\label{globals_8h_a3cc2eedb40809a1f15ad841c8abbcebf}} 
+\#define {\bfseries D\+M\+A\+\_\+\+S\+R\+C\+\_\+\+B\+A\+SE}~(C\+Y\+D\+E\+V\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+B\+A\+SE)
+\item 
+\mbox{\label{globals_8h_aa54e301f446a66cbf8c943d920c8e967}} 
+\#define {\bfseries D\+M\+A\+\_\+\+D\+S\+T\+\_\+\+B\+A\+SE}~(C\+Y\+D\+E\+V\+\_\+\+S\+R\+A\+M\+\_\+\+B\+A\+SE)
+\item 
+\mbox{\label{globals_8h_aea55597952638136c7c929b238904c82}} 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+S\+T\+A\+RT}~0
+\item 
+\mbox{\label{globals_8h_a6a6a0bb02e515a094c3e7ea1bcb66fcc}} 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+ID}~1
+\item 
+\mbox{\label{globals_8h_a235d2d0eac7e9af190ebafb84df37fd9}} 
+\#define {\bfseries W\+A\+I\+T\+\_\+\+L\+E\+N\+G\+TH}~2
+\item 
+\mbox{\label{globals_8h_a3b4d8a5e259fa47a909adefcda3bfb80}} 
+\#define {\bfseries R\+E\+C\+E\+I\+VE}~3
+\item 
+\mbox{\label{globals_8h_abf4aedd34d31b63b63061c975d872580}} 
+\#define {\bfseries U\+N\+L\+O\+AD}~4
+\item 
+\mbox{\label{globals_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries F\+A\+L\+SE}~0
+\item 
+\mbox{\label{globals_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries T\+R\+UE}~1
+\item 
+\mbox{\label{globals_8h_a0f5a7e2ead9cd507bf8fc9a6f785f012}} 
+\#define {\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+D\+I\+S\+P\+L\+A\+C\+E\+M\+E\+NT}~8
+\item 
+\mbox{\label{globals_8h_a887dbd571d7f138cbe0e994e3fcc661b}} 
+\#define {\bfseries M\+A\+X\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+ER}~250
+\item 
+\#define \textbf{ P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}~100
+\item 
+\#define \textbf{ A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP}~1000
+\item 
+\#define \textbf{ D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT}~1000
+\item 
+\#define \textbf{ C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS}~10
+\item 
+\#define \textbf{ E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}~500
+\item 
+\#define \textbf{ S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN}~100
+\item 
+\#define \textbf{ S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN}~1000
+\item 
+\mbox{\label{globals_8h_a4325f476970c4aa263bfabee0221eb9e}} 
+\#define {\bfseries S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+E\+AN}~200
+\item 
+\mbox{\label{globals_8h_a1283d2865c7502d328d4d7c0e4061f7e}} 
+\#define {\bfseries J\+O\+Y\+S\+T\+I\+C\+K\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}~100
+\item 
+\mbox{\label{globals_8h_a373fe6bcff3bcd2f3c47359f9e640bf5}} 
+\#define {\bfseries C\+A\+L\+I\+B\+\_\+\+D\+E\+C\+I\+M\+A\+T\+I\+ON}~1
+\item 
+\mbox{\label{globals_8h_a3132fbe7ff2f1850f96481fca447326a}} 
+\#define {\bfseries N\+U\+M\+\_\+\+O\+F\+\_\+\+C\+L\+O\+S\+U\+R\+ES}~5
+\item 
+\#define \textbf{ P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}~50000000
+\item 
+\#define \textbf{ C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}~100000
+\item 
+\mbox{\label{globals_8h_a071576950e29c654790153cad12794cb}} 
+\#define {\bfseries M\+I\+N\+\_\+\+C\+U\+R\+R\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}~30
+\item 
+\#define \textbf{ L\+O\+O\+K\+U\+P\+\_\+\+D\+IM}~6
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \textbf{ emg\+\_\+status} \textbf{ joystick\+\_\+status}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{globals_8h_a97a989322df9dca90b38ef77610b8301}} 
+enum {\bfseries calibration\+\_\+status} \{ \newline
+{\bfseries S\+T\+OP} = 0, 
+{\bfseries S\+T\+A\+RT} = 1, 
+{\bfseries C\+O\+N\+T\+I\+N\+U\+E\+\_\+1} = 2, 
+{\bfseries C\+O\+N\+T\+I\+N\+U\+E\+\_\+2} = 3, 
+\newline
+{\bfseries P\+A\+U\+S\+E\+\_\+1} = 4, 
+{\bfseries P\+A\+U\+S\+E\+\_\+2} = 5
+ \}
+\item 
+enum \textbf{ emg\+\_\+status} \{ \newline
+\textbf{ N\+O\+R\+M\+AL} = 0, 
+\textbf{ R\+E\+S\+ET} = 1, 
+\textbf{ D\+I\+S\+C\+A\+RD} = 2, 
+\textbf{ S\+U\+M\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN} = 3, 
+\newline
+\textbf{ W\+A\+IT} = 4
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{globals_8h_a158d26b6d15050b37d8039881d75e0dc}} 
+struct \textbf{ st\+\_\+ref} g\+\_\+ref g\+\_\+ref\+New {\bfseries g\+\_\+ref\+Old}
+\item 
+\mbox{\label{globals_8h_a47c3980e6bddec492ca4315e36602ba0}} 
+struct \textbf{ st\+\_\+meas} g\+\_\+meas {\bfseries g\+\_\+meas\+Old}
+\item 
+\mbox{\label{globals_8h_aa963ce8fafc11e104eb7ee22982d0345}} 
+struct \textbf{ st\+\_\+data} {\bfseries g\+\_\+rx}
+\item 
+\mbox{\label{globals_8h_a44c3cbd8e234e0816f0334e29646a800}} 
+struct \textbf{ st\+\_\+mem} g\+\_\+mem {\bfseries c\+\_\+mem}
+\item 
+\mbox{\label{globals_8h_aed96fdd8308fe2c4fc07c3b5db1c7bbb}} 
+struct \textbf{ st\+\_\+calib} {\bfseries calib}
+\item 
+\mbox{\label{globals_8h_ad47cd0e4d0fcf5739a88e52e949a8084}} 
+uint32 {\bfseries timer\+\_\+value}
+\item 
+\mbox{\label{globals_8h_a9bab7f1b1cf2ba38d5968eee42644c32}} 
+uint32 {\bfseries timer\+\_\+value0}
+\item 
+\mbox{\label{globals_8h_a53a494e9edc739a4f7c884778d1a93b1}} 
+int32 {\bfseries dev\+\_\+tension}
+\item 
+\mbox{\label{globals_8h_a21f4f67e4203dea0b9956589eaa6cef3}} 
+uint8 {\bfseries dev\+\_\+pwm\+\_\+limit}
+\item 
+\mbox{\label{globals_8h_afa36d7a54495dfdb796684539bf041a5}} 
+uint8 {\bfseries calibration\+\_\+flag}
+\item 
+\mbox{\label{globals_8h_aa89a782cfe75ce7970236babd308fe69}} 
+C\+Y\+B\+IT {\bfseries reset\+\_\+last\+\_\+value\+\_\+flag}
+\item 
+\mbox{\label{globals_8h_ac42fa606610c2600210d9b7b2c1d0882}} 
+C\+Y\+B\+IT {\bfseries tension\+\_\+valid}
+\item 
+\mbox{\label{globals_8h_a1e6fda88dfdabc63859f8907eb702920}} 
+C\+Y\+B\+IT {\bfseries interrupt\+\_\+flag}
+\item 
+\mbox{\label{globals_8h_a156a860c465529ff2f515725ab816a58}} 
+C\+Y\+B\+IT {\bfseries watchdog\+\_\+flag}
+\item 
+\mbox{\label{globals_8h_aed6b2ae513eb1fdb1dcfb2e8191dbfdd}} 
+int16 {\bfseries A\+D\+C\+\_\+buf} [3]
+\item 
+\mbox{\label{globals_8h_a2aaef2bd3d366a6571f3491f4fb452dd}} 
+int8 {\bfseries pwm\+\_\+sign} [N\+U\+M\+\_\+\+O\+F\+\_\+\+M\+O\+T\+O\+RS]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Global definitions and macros are set in this file. 
+
+\begin{DoxyDate}{Date}
+October 01, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+{\itshape Centro \char`\"{}\+E.\+Piaggio\char`\"{}} 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+(C) 2012-\/2016 qbrobotics. All rights reserved. 
+
+(C) 2017 Centro \char`\"{}\+E.\+Piaggio\char`\"{}. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{globals_8h_a66edaed675ab232f06a4e5b3c30d101a}} 
+\index{globals.\+h@{globals.\+h}!A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP@{A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP}}
+\index{A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP@{A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP}!globals.\+h@{globals.\+h}}
+\subsubsection{A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP}
+{\footnotesize\ttfamily \#define A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP~1000}
+
+Anti windup saturation. \mbox{\label{globals_8h_a94ec4e208ccec9fc13d0f57094f6de35}} 
+\index{globals.\+h@{globals.\+h}!C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT@{C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}}
+\index{C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT@{C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}!globals.\+h@{globals.\+h}}
+\subsubsection{C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}
+{\footnotesize\ttfamily \#define C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT~100000}
+
+Anti windup on current control. \mbox{\label{globals_8h_ad03b1f5576bd45568413662f28b88d4e}} 
+\index{globals.\+h@{globals.\+h}!C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS@{C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS}}
+\index{C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS@{C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS}!globals.\+h@{globals.\+h}}
+\subsubsection{C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS}
+{\footnotesize\ttfamily \#define C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS~10}
+
+milli\+Amperes of hysteresis for current control. \mbox{\label{globals_8h_ae0001cc59fb1ba0290c6ef8c2c5692d7}} 
+\index{globals.\+h@{globals.\+h}!D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT@{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT@{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT}!globals.\+h@{globals.\+h}}
+\subsubsection{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT}
+{\footnotesize\ttfamily \#define D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT~1000}
+
+Default Current limit, 0 stands for unlimited. \mbox{\label{globals_8h_a39897c457550afc048d5a251ba50c979}} 
+\index{globals.\+h@{globals.\+h}!E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD@{E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}}
+\index{E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD@{E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}!globals.\+h@{globals.\+h}}
+\subsubsection{E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}
+{\footnotesize\ttfamily \#define E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD~500}
+
+Number of sample to discard before calibration. \mbox{\label{globals_8h_a4f18d105a8fc18f649a92d96fb933eb3}} 
+\index{globals.\+h@{globals.\+h}!L\+O\+O\+K\+U\+P\+\_\+\+D\+IM@{L\+O\+O\+K\+U\+P\+\_\+\+D\+IM}}
+\index{L\+O\+O\+K\+U\+P\+\_\+\+D\+IM@{L\+O\+O\+K\+U\+P\+\_\+\+D\+IM}!globals.\+h@{globals.\+h}}
+\subsubsection{L\+O\+O\+K\+U\+P\+\_\+\+D\+IM}
+{\footnotesize\ttfamily \#define L\+O\+O\+K\+U\+P\+\_\+\+D\+IM~6}
+
+Dimension of the current lookup table. \mbox{\label{globals_8h_ad252b8b0421e545cce8ba0548a6ca4ed}} 
+\index{globals.\+h@{globals.\+h}!P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT@{P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}}
+\index{P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT@{P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}!globals.\+h@{globals.\+h}}
+\subsubsection{P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}
+{\footnotesize\ttfamily \#define P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT~50000000}
+
+Anti windup on position control. \mbox{\label{globals_8h_aafe0521fa22763b7afc50e12d31b450d}} 
+\index{globals.\+h@{globals.\+h}!P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE@{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}}
+\index{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE@{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}!globals.\+h@{globals.\+h}}
+\subsubsection{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE~100}
+
+Maximum value of the P\+WM signal. \mbox{\label{globals_8h_aafe0521fa22763b7afc50e12d31b450d}} 
+\index{globals.\+h@{globals.\+h}!P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE@{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}}
+\index{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE@{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}!globals.\+h@{globals.\+h}}
+\subsubsection{P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE~100}
+
+Maximum value of the P\+WM signal. \mbox{\label{globals_8h_a31532371c5c48fd2551639ed09afe4fb}} 
+\index{globals.\+h@{globals.\+h}!S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN@{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN}}
+\index{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN@{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN}!globals.\+h@{globals.\+h}}
+\subsubsection{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN}
+{\footnotesize\ttfamily \#define S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN~1000}
+
+Number of samples used to mean emg values. \mbox{\label{globals_8h_a1f15a178b37117a29361e7ec20f77cc4}} 
+\index{globals.\+h@{globals.\+h}!S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN@{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN}}
+\index{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN@{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN}!globals.\+h@{globals.\+h}}
+\subsubsection{S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN}
+{\footnotesize\ttfamily \#define S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN~100}
+
+Number of samples used to mean current values. 
+
+\subsection{Typedef Documentation}
+\mbox{\label{globals_8h_afb148169c47b1f32e9d33ab32a36beb1}} 
+\index{globals.\+h@{globals.\+h}!joystick\+\_\+status@{joystick\+\_\+status}}
+\index{joystick\+\_\+status@{joystick\+\_\+status}!globals.\+h@{globals.\+h}}
+\subsubsection{joystick\+\_\+status}
+{\footnotesize\ttfamily typedef  enum \textbf{ emg\+\_\+status}  \textbf{ joystick\+\_\+status}}
+
+E\+MG and joystick status enumeration 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{globals_8h_a723f289c2be966c5e6c8dfe3d0b46f1e}} 
+\index{globals.\+h@{globals.\+h}!emg\+\_\+status@{emg\+\_\+status}}
+\index{emg\+\_\+status@{emg\+\_\+status}!globals.\+h@{globals.\+h}}
+\subsubsection{emg\+\_\+status}
+{\footnotesize\ttfamily enum \textbf{ emg\+\_\+status}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+O\+R\+M\+AL@{N\+O\+R\+M\+AL}!globals.\+h@{globals.\+h}}\index{globals.\+h@{globals.\+h}!N\+O\+R\+M\+AL@{N\+O\+R\+M\+AL}}}\mbox{\label{globals_8h_a723f289c2be966c5e6c8dfe3d0b46f1ea50d1448013c6f17125caee18aa418af7}} 
+N\+O\+R\+M\+AL&Normal execution \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+E\+S\+ET@{R\+E\+S\+ET}!globals.\+h@{globals.\+h}}\index{globals.\+h@{globals.\+h}!R\+E\+S\+ET@{R\+E\+S\+ET}}}\mbox{\label{globals_8h_a723f289c2be966c5e6c8dfe3d0b46f1ea589b7d94a3d91d145720e2fed0eb3a05}} 
+R\+E\+S\+ET&Reset analog measurements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+I\+S\+C\+A\+RD@{D\+I\+S\+C\+A\+RD}!globals.\+h@{globals.\+h}}\index{globals.\+h@{globals.\+h}!D\+I\+S\+C\+A\+RD@{D\+I\+S\+C\+A\+RD}}}\mbox{\label{globals_8h_a723f289c2be966c5e6c8dfe3d0b46f1ea2c65e1f3e87da84f74b4fc2a908bf69d}} 
+D\+I\+S\+C\+A\+RD&Discard first samples to obtain a correct value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+U\+M\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN@{S\+U\+M\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN}!globals.\+h@{globals.\+h}}\index{globals.\+h@{globals.\+h}!S\+U\+M\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN@{S\+U\+M\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN}}}\mbox{\label{globals_8h_a723f289c2be966c5e6c8dfe3d0b46f1ea5bd42edcea28ad65a046391d8af6dfd8}} 
+S\+U\+M\+\_\+\+A\+N\+D\+\_\+\+M\+E\+AN&Sum and mean a definite value of samples \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{W\+A\+IT@{W\+A\+IT}!globals.\+h@{globals.\+h}}\index{globals.\+h@{globals.\+h}!W\+A\+IT@{W\+A\+IT}}}\mbox{\label{globals_8h_a723f289c2be966c5e6c8dfe3d0b46f1ea79a322ccb4b29b85b3cab52dbccefd17}} 
+W\+A\+IT&The second emg waits until the first emg has a valid value \\
+\hline
+
+\end{DoxyEnumFields}

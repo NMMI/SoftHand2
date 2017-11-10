@@ -36,24 +36,17 @@
 * \file         main.c
 *
 * \brief        Firmware main file.
-* \date         Dic. 1, 2015
-* \author       qbrobotics
+* \date         October 01, 2017
+* \author       _Centro "E.Piaggio"_
 * \copyright    (C) 2012-2016 qbrobotics. All rights reserved.
 * \copyright    (C) 2017 Centro "E.Piaggio". All rights reserved.
-*/
-
-/**
 * \mainpage     Firmware
-* \brief        This is the firmware of the qb move.
-* \version      0.1 beta 4
+* \brief        This is the firmware of the qbcontrol main board for SoftHand2 terminal device.
+* \version      1.0
 *
-* \author       _qbrobotics_
-*
-* \date         Dic. 1, 2015
-*
-* \details      This is the firmware of the qb move.
-*
-* \copyright    (C)  qbrobotics. All rights reserved.
+* \details      This is the firmware of the SoftHand2. It can control two motors and
+*               read their encoders. Also can read and convert analog measurements
+*               connected to the PSoC microcontroller.                
 *
 */
 

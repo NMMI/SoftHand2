@@ -1,0 +1,108 @@
+\section{interruptions.\+c File Reference}
+\label{interruptions_8c}\index{interruptions.\+c@{interruptions.\+c}}
+
+
+Interruption functions are in this file.  
+
+
+{\ttfamily \#include $<$interruptions.\+h$>$}\newline
+{\ttfamily \#include $<$command\+\_\+processing.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+Include dependency graph for interruptions.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interruptions_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{interruptions_8c_aba74df0c62c62434ebccf8124c5d5fef}} 
+{\bfseries C\+Y\+\_\+\+I\+SR} (I\+S\+R\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+Handler)
+\item 
+\mbox{\label{interruptions_8c_a7692d8c3185943c5bdfaa6de0a172ad3}} 
+{\bfseries C\+Y\+\_\+\+I\+SR} (I\+S\+R\+\_\+\+R\+S485\+\_\+\+R\+X\+\_\+\+Ex\+Interrupt)
+\item 
+\mbox{\label{interruptions_8c_a9790811526002d99b25a814afd02cbae}} 
+void {\bfseries interrupt\+\_\+manager} ()
+\item 
+\mbox{\label{interruptions_8c_a39df971c4e9f194be50c54dfd7aeabfe}} 
+void {\bfseries function\+\_\+scheduler} (void)
+\item 
+\mbox{\label{interruptions_8c_a717216ab689fc8b8ea3fb8795a816a2b}} 
+void {\bfseries motor\+\_\+control} (const uint8 idx)
+\item 
+\mbox{\label{interruptions_8c_a00a8d34962a63161405e5d7785b9625e}} 
+void {\bfseries analog\+\_\+read\+\_\+end} ()
+\item 
+\mbox{\label{interruptions_8c_af8d2e8be60bb142650c4fcf4b782fb14}} 
+void {\bfseries encoder\+\_\+reading} (const uint8 idx)
+\item 
+\mbox{\label{interruptions_8c_ab7b287cf5df2ea548297b951be2f20d4}} 
+void {\bfseries pwm\+\_\+limit\+\_\+search} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+C\+Y\+C\+O\+DE uint8 {\bfseries pwm\+\_\+preload\+\_\+values} [29]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interruption functions are in this file. 
+
+\begin{DoxyDate}{Date}
+October 01, 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+{\itshape Centro \char`\"{}\+E.\+Piaggio\char`\"{}} 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+(C) 2012-\/2016 qbrobotics. All rights reserved. 
+
+(C) 2017 Centro \char`\"{}\+E.\+Piaggio\char`\"{}. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\subsection{Variable Documentation}
+\mbox{\label{interruptions_8c_a82beecb0593499956eb3ee6fdf734a76}} 
+\index{interruptions.\+c@{interruptions.\+c}!pwm\+\_\+preload\+\_\+values@{pwm\+\_\+preload\+\_\+values}}
+\index{pwm\+\_\+preload\+\_\+values@{pwm\+\_\+preload\+\_\+values}!interruptions.\+c@{interruptions.\+c}}
+\subsubsection{pwm\+\_\+preload\+\_\+values}
+{\footnotesize\ttfamily C\+Y\+C\+O\+DE uint8 pwm\+\_\+preload\+\_\+values[29]}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{100,    
+                                        83,
+                                        78,
+                                        76,
+                                        74,
+                                        72,    
+                                        70,
+                                        68,
+                                        67,
+                                        65,
+                                        64,    
+                                        63,
+                                        62,
+                                        61,
+                                        60,
+                                        59,    
+                                        58,
+                                        57,
+                                        56,
+                                        56,
+                                        55,    
+                                        54,
+                                        54,
+                                        53,
+                                        52,
+                                        52,    
+                                        52,
+                                        51,
+                                        51\}
+\end{DoxyCode}

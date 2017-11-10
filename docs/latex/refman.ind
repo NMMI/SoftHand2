@@ -1,0 +1,157 @@
+\begin{theindex}
+
+  \item {A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP}
+    \subitem {globals.\+h}, 25
+
+  \indexspace
+
+  \item {C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}
+    \subitem {globals.\+h}, 26
+  \item {C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS}
+    \subitem {globals.\+h}, 26
+  \item {cmd\+\_\+get\+\_\+measurements}
+    \subitem {command\+\_\+processing.\+c}, 12
+    \subitem {command\+\_\+processing.\+h}, 15
+  \item {command\+\_\+processing.\+c}, 11
+    \subitem {cmd\+\_\+get\+\_\+measurements}, 12
+    \subitem {mem\+Init}, 13
+    \subitem {mem\+Recall}, 13
+    \subitem {mem\+Restore}, 13
+    \subitem {mem\+Store}, 13
+  \item {command\+\_\+processing.\+h}, 14
+    \subitem {cmd\+\_\+get\+\_\+measurements}, 15
+    \subitem {mem\+Init}, 15
+    \subitem {mem\+Recall}, 16
+    \subitem {mem\+Restore}, 16
+    \subitem {mem\+Store}, 16
+  \item {commands.\+h}, 16
+    \subitem {P\+A\+R\+A\+M\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+L\+OT}, 18
+    \subitem {P\+A\+R\+A\+M\+\_\+\+M\+E\+N\+U\+\_\+\+S\+L\+OT}, 18
+    \subitem {qbmove\+\_\+command}, 19
+    \subitem {qbmove\+\_\+control\+\_\+mode}, 20
+    \subitem {qbmove\+\_\+input\+\_\+mode}, 20
+    \subitem {qbmove\+\_\+parameter}, 20
+
+  \indexspace
+
+  \item {D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT}
+    \subitem {globals.\+h}, 26
+  \item {direction}
+    \subitem {st\+\_\+calib}, 7
+
+  \indexspace
+
+  \item {E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}
+    \subitem {globals.\+h}, 26
+  \item {emg\+\_\+status}
+    \subitem {globals.\+h}, 27
+  \item {enabled}
+    \subitem {st\+\_\+calib}, 7
+
+  \indexspace
+
+  \item {globals.\+c}, 21
+  \item {globals.\+h}, 23
+    \subitem {A\+N\+T\+I\+\_\+\+W\+I\+N\+D\+UP}, 25
+    \subitem {C\+U\+R\+R\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}, 
+		26
+    \subitem {C\+U\+R\+R\+E\+N\+T\+\_\+\+H\+Y\+S\+T\+E\+R\+E\+S\+IS}, 
+		26
+    \subitem {D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+IT}, 
+		26
+    \subitem {E\+M\+G\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+D\+I\+S\+C\+A\+RD}, 
+		26
+    \subitem {emg\+\_\+status}, 27
+    \subitem {joystick\+\_\+status}, 27
+    \subitem {L\+O\+O\+K\+U\+P\+\_\+\+D\+IM}, 26
+    \subitem {P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}, 
+		26
+    \subitem {P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}, 26
+    \subitem {S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN}, 
+		27
+    \subitem {S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN}, 27
+
+  \indexspace
+
+  \item {interruptions.\+c}, 28
+    \subitem {pwm\+\_\+preload\+\_\+values}, 29
+  \item {interruptions.\+h}, 30
+
+  \indexspace
+
+  \item {joystick\+\_\+status}
+    \subitem {globals.\+h}, 27
+
+  \indexspace
+
+  \item {L\+O\+O\+K\+U\+P\+\_\+\+D\+IM}
+    \subitem {globals.\+h}, 26
+
+  \indexspace
+
+  \item {main.\+c}, 31
+  \item {mem\+Init}
+    \subitem {command\+\_\+processing.\+c}, 13
+    \subitem {command\+\_\+processing.\+h}, 15
+  \item {mem\+Recall}
+    \subitem {command\+\_\+processing.\+c}, 13
+    \subitem {command\+\_\+processing.\+h}, 16
+  \item {mem\+Restore}
+    \subitem {command\+\_\+processing.\+c}, 13
+    \subitem {command\+\_\+processing.\+h}, 16
+  \item {mem\+Store}
+    \subitem {command\+\_\+processing.\+c}, 13
+    \subitem {command\+\_\+processing.\+h}, 16
+
+  \indexspace
+
+  \item {P\+A\+R\+A\+M\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+L\+OT}
+    \subitem {commands.\+h}, 18
+  \item {P\+A\+R\+A\+M\+\_\+\+M\+E\+N\+U\+\_\+\+S\+L\+OT}
+    \subitem {commands.\+h}, 18
+  \item {P\+O\+S\+\_\+\+I\+N\+T\+E\+G\+R\+A\+L\+\_\+\+S\+A\+T\+\_\+\+L\+I\+M\+IT}
+    \subitem {globals.\+h}, 26
+  \item {P\+W\+M\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}
+    \subitem {globals.\+h}, 26
+  \item {pwm\+\_\+preload\+\_\+values}
+    \subitem {interruptions.\+c}, 29
+
+  \indexspace
+
+  \item {qbmove\+\_\+command}
+    \subitem {commands.\+h}, 19
+  \item {qbmove\+\_\+control\+\_\+mode}
+    \subitem {commands.\+h}, 20
+  \item {qbmove\+\_\+input\+\_\+mode}
+    \subitem {commands.\+h}, 20
+  \item {qbmove\+\_\+parameter}
+    \subitem {commands.\+h}, 20
+
+  \indexspace
+
+  \item {repetitions}
+    \subitem {st\+\_\+calib}, 7
+
+  \indexspace
+
+  \item {S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+E\+M\+G\+\_\+\+M\+E\+AN}
+    \subitem {globals.\+h}, 27
+  \item {S\+A\+M\+P\+L\+E\+S\+\_\+\+F\+O\+R\+\_\+\+M\+E\+AN}
+    \subitem {globals.\+h}, 27
+  \item {speed}
+    \subitem {st\+\_\+calib}, 8
+  \item {st\+\_\+calib}, 7
+    \subitem {direction}, 7
+    \subitem {enabled}, 7
+    \subitem {repetitions}, 7
+    \subitem {speed}, 8
+  \item {st\+\_\+data}, 8
+  \item {st\+\_\+meas}, 8
+  \item {st\+\_\+mem}, 9
+  \item {st\+\_\+ref}, 9
+
+  \indexspace
+
+  \item {utils.\+h}, 32
+
+\end{theindex}
