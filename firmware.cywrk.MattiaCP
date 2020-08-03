@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\commands.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\command_processing.h">
 <ExpandedNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
@@ -339,7 +339,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_SOC\ADC_SOC_PM.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_STATUS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_STATUS\ADC_STATUS.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_STATUS\ADC_STATUS.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -616,7 +615,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\main.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_1A.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_1B.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Debug\Listing Files\MOTOR_2A.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -732,12 +730,13 @@
 <name v=".\firmware.cydsn\firmware.cydwr" />
 <name v=".\firmware.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\firmware.cydsn\interruptions.c" />
-<name v=".\firmware.cydsn\globals.h" />
 <name v=".\firmware.cydsn\main.c" />
 <name v=".\firmware.cydsn\utils.c" />
 <name v=".\firmware.cydsn\utils.h" />
 <name v=".\firmware.cydsn\command_processing.c" />
 <name v=".\firmware.cydsn\commands.h" />
+<name v=".\firmware.cydsn\globals.h" />
+<name v=".\firmware.cydsn\command_processing.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -745,7 +744,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1465, 829" SelectedTabbedMdiWindow="185798d9-8740-4392-81f9-711a06bddf95"><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\firmware.cydwr" Guid="185798d9-8740-4392-81f9-711a06bddf95" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\TopDesign\TopDesign.cysch" Guid="27bec1e9-1cbf-4637-9e57-a1cc61a6d26b" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\interruptions.c" Guid="a565b276-d995-464e-8680-ff98882ece0b" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\globals.h" Guid="4db74f23-0050-49ee-8675-2245b2d36c69" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\main.c" Guid="c82b6f05-009e-4b12-af80-895d9f831677" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\utils.c" Guid="bb17c25b-7d81-4891-9250-01ad723d1950" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\utils.h" Guid="a65c6c73-d2a1-46cc-8b9f-e41188f94194" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\command_processing.c" Guid="bcd0e557-cad3-445e-a7a3-2a695cce0f8c" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\commands.h" Guid="a4f617b1-ed75-4ea9-ab22-31c20225781d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1583, 639" SelectedTabbedMdiWindow="fe312e03-83a1-4b56-9341-f21b1b7db41a"><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\firmware.cydwr" Guid="6596e36a-4bbb-4c2f-b281-9d61efe91539" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\TopDesign\TopDesign.cysch" Guid="20d39a1c-2724-44d2-a7b3-c544c5e0c37e" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\interruptions.c" Guid="f90a006f-7d25-440a-81ff-e409bc1931d6" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\main.c" Guid="fe312e03-83a1-4b56-9341-f21b1b7db41a" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\utils.c" Guid="faa3493b-a567-41a6-994d-d602a171d653" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\utils.h" Guid="990db917-7717-4808-8288-50660086912d" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\command_processing.c" Guid="d315cdf7-4e9f-4bf5-aec1-8a5ed8167235" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\commands.h" Guid="5e8df555-b4ff-4180-88d8-7ac7bf3fe71c" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\globals.h" Guid="f1a5c465-a29d-4b03-aed3-8e1653dbf0b0" /><DocumentWindow Key="C:\Users\MattiaCP\Documents\GITHUB\SoftHand2\firmware.cydsn\command_processing.h" Guid="4b2901d6-5cf1-4fa2-8cb7-1e2932189a77" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Release" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

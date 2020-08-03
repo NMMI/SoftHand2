@@ -35,7 +35,7 @@
 /**
  *  \file       commands.h
  *
- *  \brief      Definitions for qbMove and qbHand commands, parameters and packages.
+ *  \brief      Definitions for commands, parameters and packages.
  *  \date         October 01, 2017
  *  \author       _Centro "E.Piaggio"_
  *  \copyright    (C) 2012-2016 qbrobotics. All rights reserved.

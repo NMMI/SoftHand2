@@ -690,8 +690,8 @@ void get_param_list(uint16 index)
 
             packet_data[1152] = TYPE_UINT16;
             packet_data[1153] = 2;
-            *((uint16 *) packet_data + 1154) = c_mem.joystick_gains[0];
-            *((uint16 *) packet_data + 1156) = c_mem.joystick_gains[1];
+            *((uint16 *) (packet_data + 1154)) = c_mem.joystick_gains[0];
+            *((uint16 *) (packet_data + 1156)) = c_mem.joystick_gains[1];
             for(i = joystick_gains_str_len; i != 0; i--)
                 packet_data[1158 + joystick_gains_str_len - i] = joystick_gains_str[joystick_gains_str_len - i];
 
